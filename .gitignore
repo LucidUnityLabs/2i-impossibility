@@ -1,0 +1,26 @@
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+
+# Python
+__pycache__/
+*.pyc
+
+# LaTeX build artifacts (keep the published PDF)
+*.aux
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.out
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+*.synctex.gz
+*.pdf
+!paper/paper1.pdf

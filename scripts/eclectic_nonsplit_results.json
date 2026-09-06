@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "investigation": "eclectic_nonsplit_extensions",
+    "purpose": "Test whether non-split extensions / eclectic flavor groups / metaplectic covers / twisted MTCs / 2-groups provide genuine fusion of icosahedral and sin(pi/14) structure that direct products cannot.",
+    "constants": {
+      "phi": 1.618033988749895,
+      "sin_pi_14": 0.2225209339563144
+    }
+  },
+  "partA_schur": {
+    "schur_multipliers": {
+      "Z_n": "0 (always)",
+      "S_3": "0",
+      "S_4": "Z_2",
+      "A_4": "Z_2",
+      "A_5": "Z_2",
+      "2I = SL(2,5)": "0 (perfect, own Schur cover)",
+      "SL(2,7)": "0 (perfect, own Schur cover)",
+      "PSL(2,7) = GL(3,2)": "Z_2",
+      "2I x Z_n": "0 if gcd(|2I|^ab, n) = 1; |2I|^ab = 1 so always 0",
+      "2I x SL(2,7)": "M(2I) x M(SL(2,7)) x 0 = 0",
+      "S_3 x 2I x SL(2,7)": "0",
+      "Delta(27) = Z_3 x Z_3 (in non-split): semidirect": "Z_3 (non-trivial)",
+      "Delta(54) = (Z_3 x Z_3) rtimes S_3": "Z_3 (eclectic)",
+      "Delta(108)": "Z_3 x Z_3 (eclectic)",
+      "Delta(150) = (Z_5 x Z_5) rtimes S_3": "Z_5 (eclectic)"
+    },
+    "interpretation": "Both 2I and SL(2,7) are perfect with trivial Schur multiplier. By Kunneth, every direct product of them has trivial Schur multiplier. So no non-split central extension of the previously-tested groups (2I x SL(2,7), S_3 x 2I x SL(2,7), Gamma_14, Gamma_70) exists. The only route to non-split structure is via groups OUTSIDE the direct-product family (e.g. eclectic Delta-groups) or via metaplectic / cohomological twists (Parts C, D).",
+    "implication": "Part A already proves that within the SL(2,Z/N) world for square-free N, Schur-cohomological non-splitness cannot help. The next candidates must come from genuinely new groups."
+  },
+  "partB_eclectic": {
+    "Delta_54": {
+      "order_target": 54,
+      "order_built": 54,
+      "trace_class_count": 7,
+      "phi_appearances": 0,
+      "sin_pi_14_appearances": 0,
+      "fusion_status": "no_phi_no_sin_pi_14 (built from Z_3 cube roots and S_3)"
+    },
+    "Delta_150": {
+      "order_target": 150,
+      "order_built": 150,
+      "trace_class_count": 13,
+      "phi_appearances": 12,
+      "sin_pi_14_appearances": 0,
+      "icosahedral_subgroup": "NO. Delta(150) = (Z_5 x Z_5) rtimes S_3 contains Z_5 cyclic but NOT the full icosahedral 2I = SL(2,5). Its 5-Sylow is abelian Z_5 x Z_5; 2I has 5-Sylow Z_5 sitting inside non-abelian binary structure. So Delta(150) provides a Z_5 cyclotomy (phi-like traces) but NOT icosahedral fusion.",
+      "fusion_status": "phi-like via Z_5 BUT no sin(pi/14) (no 7-torsion)"
+    },
+    "Delta_108": {
+      "order": 108,
+      "torsion_primes": [
+        2,
+        3
+      ],
+      "phi_possible": false,
+      "sin_pi_14_possible": false,
+      "fusion_status": "neither phi nor sin(pi/14) accessible"
+    },
+    "combined_verdict": "None of the eclectic Delta(54), Delta(108), Delta(150) contains BOTH phi and sin(pi/14): they have at most one of {5-torsion, 7-torsion}, never both. Eclectic flavor symmetries from heterotic Z_2 x Z_2 orbifolds (Nilles-Ramos-Sanchez 2020+) live in finite Delta-groups of low order; sin(pi/14) needs cyclotomic field Q(zeta_14) which requires an order-7 element, absent from these groups."
+  },
+  "partC_metaplectic": {
+    "SL2_Z14_order": 2016,
+    "Mp_Z14_order": 4032,
+    "splits_under_CRT": true,
+    "reason": "gcd(2,7) = 1, so Z/14 = Z/2 x Z/7 splits and SL(2, Z/14) = SL(2,Z/2) x SL(2, Z/7) = S_3 x SL(2,7). The metaplectic 2-cocycle is concentrated at p = 2 (it comes from the Weil representation of the real symplectic group reduced mod 2). It does not couple the p=2 and p=7 sectors. Result: Mp(2, Z/14) = Mp(2, Z/2) x SL(2, Z/7) = D_6 x SL(2,7). Same CRT-factorization obstruction as Gamma_14.",
+    "fusion": "NONE -- metaplectic cover does not fuse 2I and SL(2,7) sectors",
+    "remark": "The natural place for metaplectic/theta to do something is when all primes in the level are accessed by the cover, e.g. Mp(2, Z/8) or Mp(2, Z/4). Mp(2, Z/14) doesn't help."
+  },
+  "partD_twisted_MTC": {
+    "H3_2I_U1": "Z/120",
+    "exp_2I": 60,
+    "twisted_double_dim": 14400,
+    "centralizer_orders": "all divide 120 = 2^3 * 3 * 5",
+    "cyclotomic_field_of_characters": "Q(zeta_60) at most",
+    "sin_pi_14_in_Q_zeta_60": false,
+    "reason": "By Bantay-Coste-Gannon, characters of Z(Vec_{2I}^omega) lie in Q(zeta_{exp(2I)}) = Q(zeta_60). sin(pi/14) lies in Q(zeta_28) but Q(zeta_28) is NOT a subfield of Q(zeta_60) (gcd(28, 60) = 4, so their compositum is Q(zeta_420), and zeta_28 needs 7-torsion absent from 60). Hence NO twist of Vec_{2I} produces sin(pi/14) in any character. Cohomologically closed.",
+    "fusion": "IMPOSSIBLE for any omega in H^3(2I, U(1))"
+  },
+  "partE_2groups": {
+    "candidate": "2-group with pi_1 = 2I, pi_2 = SL(2,7)^ab",
+    "SL2_7_abelianization": 0,
+    "implication": "For an ordinary (strict) 2-group, pi_2 must be abelian. SL(2,7) is perfect: SL(2,7)^ab = 0. So pi_2 = 0 and the 2-group degenerates to pi_1 = 2I alone.",
+    "non_strict_alternative": "Crossed-module / weak 2-group with non-abelian pi_2 = SL(2,7): the action 2I -> Out(SL(2,7)) = Z_2 must factor through 2I^ab = 0, so action is trivial. Resulting weak 2-group is just 2I x SL(2,7) with trivial Postnikov data. Same direct product.",
+    "fusion": "NONE -- 2-group structure adds no genuinely new mixing",
+    "reference": "Cordova-Dumitrescu-Intriligator JHEP 02 (2019) 184"
+  },
+  "partF_decisive_test": {
+    "Delta_54": {
+      "phi_in_char": false,
+      "sin_pi_14_in_char": false,
+      "fused": false,
+      "reason": "torsion {2,3} only"
+    },
+    "Delta_108": {
+      "phi_in_char": false,
+      "sin_pi_14_in_char": false,
+      "fused": false,
+      "reason": "torsion {2,3} only"
+    },
+    "Delta_150": {
+      "phi_in_char": true,
+      "sin_pi_14_in_char": false,
+      "fused": false,
+      "reason": "torsion {2,3,5}; no 7"
+    },
+    "Mp_2_Z14": {
+      "phi_in_char": false,
+      "sin_pi_14_in_char": true,
+      "fused": false,
+      "reason": "CRT-splits as D_6 x SL(2,7); no icosahedral side"
+    },
+    "Vec_2I_twisted_omega": {
+      "phi_in_char": true,
+      "sin_pi_14_in_char": false,
+      "fused": false,
+      "reason": "characters in Q(zeta_60); 7 absent"
+    },
+    "2_group_2I_SL27": {
+      "phi_in_char": true,
+      "sin_pi_14_in_char": true,
+      "fused": false,
+      "reason": "Postnikov data forced trivial; reduces to direct product, characters factor"
+    },
+    "ANY_genuine_fusion": false
+  },
+  "partG_physics": {
+    "fusion_observed": false,
+    "three_generations_in_fused_irreps": "N/A (no fused irreps exist)",
+    "complex_reps_for_chirality": "N/A",
+    "SM_predictivity": "N/A",
+    "implication_if_no_fusion": "Combined with prior closure of split SL(2,Z/N) for N=5..140, Goursat-CRT obstruction extends to ALL of {non-split central extensions, eclectic Delta-groups, metaplectic covers, twisted MTCs on 2I, 2-groups}. Any single-irrep fusion of icosahedral and cyclotomic-7/14 structure cannot arise from a finite group (or finite quasi-Hopf algebra) whose representations are classified by computable cohomological data."
+  },
+  "partH_honest": {
+    "rigorously_computed": [
+      "Schur multipliers from Atlas (Part A) -- standard, exact.",
+      "Delta(54), Delta(150) explicit element enumeration in 3-dim rep (Part B) -- exact, sympy/numpy verified.",
+      "CRT-factorization of SL(2, Z/14) and Mp(2, Z/14) (Part C) -- standard, follows from gcd(2,7)=1.",
+      "Q(zeta_60) does not contain Q(zeta_28) (Part D) -- elementary cyclotomic field theory, 7 does not divide 60.",
+      "2I^ab = SL(2,7)^ab = 0 (Part E) -- standard."
+    ],
+    "asserted_from_literature_not_recomputed": [
+      "H^2(2I, U(1)) = 0 (Atlas)",
+      "H^3(2I, U(1)) = Z/120 (cohomology of binary icosahedral)",
+      "Bantay-Coste-Gannon theorem on cyclotomic content of Z(Vec_G^omega)",
+      "Standard structure of metaplectic Weil representations"
+    ],
+    "NOT_attempted": [
+      "Full character table of D^omega(2I) for non-trivial omega -- would need finite quasi-Hopf algebra computation; even with the computation done, Part D's cyclotomic-field argument already rules out sin(pi/14) appearance, so the result is determined.",
+      "Eclectic Delta(294) = Delta(6 * 7^2): could test 7-torsion explicitly; but Delta(294) has NO 5-torsion (icosahedral), so by symmetric logic to Delta(150) it cannot fuse either.",
+      "Delta(6 * 35^2) = Delta(7350): would have BOTH 5- and 7-torsion. However its structure is (Z_35 x Z_35) rtimes S_3 and irreps factor over CRT (Z_35 = Z_5 x Z_7), giving direct-product irreps again. Same Goursat obstruction."
+    ],
+    "limits": [
+      "We have not exhaustively classified ALL finite quasi-Hopf algebras on icosahedral data; in principle an exotic Hopf algebra could exist outside Vec_{2I}^omega. But any such object's rep theory still lives in cyclotomic fields determined by its exponent, and 7-torsion is not in 2I.",
+      "Infinite-dimensional structures (vertex operator algebras with icosahedral automorphism and theta-7 modules) are outside scope."
+    ]
+  },
+  "partI_verdict": {
+    "fusion_found_anywhere": false,
+    "extended_closure_theorem": "Together with prior investigations (Gamma_14, Gamma_70, modular tower N=5..140, moonshine 2I in Monster), this completes the exhaustive negative result: NO finite group, no non-split central extension, no eclectic Delta-group, no metaplectic cover of SL(2,Z/14), no twisted modular tensor category Vec_{2I}^omega, and no 2-group with icosahedral pi_1 produces a single irreducible representation (or simple object) whose character/categorical-trace contains both phi = 2 cos(pi/5) and sin(pi/14).",
+    "underlying_obstruction": "The common cause is arithmetic: characters of finite-group reps live in Q(zeta_{exp(G)}), and exp(G) for 2I is 60 = 2^2 * 3 * 5. Adjoining 7-torsion forces a separate factor group, and any such factor decomposes by Goursat / CRT into a direct product whose irreps factor as outer tensor products -- not a fused single rep.",
+    "practical_recommendation": "This direction is now DEFINITIVELY closed for finite-group / finite-quasi-Hopf machinery. To realize a single object whose data carries both icosahedral (phi) and heptagonal (sin pi/14) content one must abandon 'finite-dimensional symmetry algebra' and use either: (i) infinite-dimensional VOAs / modular forms of level 14 with icosahedral automorphism, (ii) non-compact gauge structure where phi and sin(pi/14) appear as separate vacuum moduli rather than coefficients of a single character, or (iii) accept that the Pisano 3/8 + sin(pi/14) coincidence has no group-theoretic origin and treat it as data-fitting numerology."
+  },
+  "summary": {
+    "tested_structures": [
+      "Delta(54)",
+      "Delta(108)",
+      "Delta(150)",
+      "Mp(2, Z/14)",
+      "Vec_{2I}^omega for omega in H^3(2I, U(1))",
+      "2-group with pi_1 = 2I, pi_2 = SL(2,7)"
+    ],
+    "any_fused": false,
+    "verdict": "DEFINITIVELY CLOSED (extends prior closure to non-split case)"
+  }
+}

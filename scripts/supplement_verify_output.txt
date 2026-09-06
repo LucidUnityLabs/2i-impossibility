@@ -1,0 +1,54 @@
+========================================================================
+[1] Constructing 2I as 120 unit quaternions
+========================================================================
+[PASS] 1a: |2I| = 120 -- constructed 120 elements
+[PASS] 1b: all elements unit norm -- max |norm - 1| = 0.00e+00
+[PASS] 1c: closure under quaternion product -- all 14400 products land in 2I
+
+========================================================================
+[2] Conjugacy classes and exponent
+========================================================================
+[PASS] 2a: 9 conjugacy classes, sizes {1,1,12,12,12,12,20,20,30} -- found 9 classes, sizes [1, 1, 12, 12, 12, 12, 20, 20, 30]
+[PASS] 2b: exp(2I) = 60 with prime support {2,3,5} -- exponent = 60, primes = [2, 3, 5], class orders = [1, 2, 10, 5, 5, 10, 6, 3, 4]
+[PASS] 2c: unique central involution class (z = -1) -- classes of size 1 at indices [0, 1]
+
+========================================================================
+[3] Character table via class-algebra eigenvalues
+========================================================================
+[PASS] 3a: irrep dims {1,2,2,3,3,4,4,5,6}, sum of squares = 120 -- dims = [1, 2, 2, 3, 3, 4, 4, 5, 6]
+[PASS] 3b: character table orthonormal -- max |<chi_a, chi_b> - delta_ab| = 1.705e-14
+[PASS] 3c: all character values real (self-conjugate irreps) -- max |Im chi| = 0.000e+00
+
+========================================================================
+[4] Frobenius-Schur indicators (Theorem B)
+========================================================================
+[PASS] 4a: FS indicators all exactly +-1 (no complex type) -- nu values = [1, -1, -1, 1, 1, 1, -1, 1, -1]
+[PASS] 4b: faithful irreps (chi(z)=-dim) exactly the quaternionic ones -- faithful dims = [2, 2, 4, 6] (nu=-1), real dims = [1, 3, 3, 4, 5] (nu=+1)
+[PASS] 4c: Frobenius count sum(nu*dim) = #{g: g^2=e} = 2 -- sum(nu*dim) = 2, #square roots of e = 2
+[PASS] 4d: A5-type irreps (dims 1,3,3',4,5) all real -- sum dims 16 = #{a in A5: a^2 = 1} forces nu = +1 on each
+
+  Frobenius-Schur table for 2I (paper Table 1):
+    irrep dim | chi(z) | faithful | nu
+       1      | +1   | no       | +1
+       2      | -2   | yes      | -1
+       2      | -2   | yes      | -1
+       3      | +3   | no       | +1
+       3      | +3   | no       | +1
+       4      | +4   | no       | +1
+       4      | -4   | yes      | -1
+       5      | +5   | no       | +1
+       6      | -6   | yes      | -1
+
+========================================================================
+[5] Arithmetic obstruction (Theorem A)
+========================================================================
+[PASS] 5a: sin(pi/14) = (zeta_14^3 + zeta_14^{-3})/2 in Q(zeta_14) -- |difference| = 5.55e-17
+[PASS] 5b: minimal polynomial 8x^3-4x^2-4x+1 vanishes at sin(pi/14) -- |m(S)| = 0.00e+00
+[PASS] 5c: 8x^3-4x^2-4x+1 irreducible over Q (rational root test) -- no rational root among +-1, +-1/2, +-1/4, +-1/8
+[PASS] 5d: phi(60) = 16 = [Q(zeta_60):Q] -- phi(60) = 16
+[PASS] 5e: sin(pi/14) not in Q(zeta_60) (degree 3 does not divide 16) -- [Q(sin(pi/14)):Q] = 3, [Q(zeta_60):Q] = 16, 3 does not divide 16
+[PASS] 5f: prime separation -- 7 | 14 but 7 does not divide exp(2I) = 60 -- primes(60) = [2, 3, 5], primes(14) = [2, 7], gcd(60,14) = 2
+[PASS] 5g: sin(pi/14) not an algebraic integer; character values are -- minimal polynomial not monic (leading coeff 8); character values are sums of roots of unity, hence algebraic integers
+
+========================================================================
+SUMMARY: ALL 20 CHECKS PASS

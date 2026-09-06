@@ -1,0 +1,804 @@
+{
+  "|2I|": 120,
+  "num_conjugacy_classes": 9,
+  "class_sizes": [
+    1,
+    1,
+    12,
+    12,
+    12,
+    12,
+    20,
+    20,
+    30
+  ],
+  "irrep_dims": [
+    1,
+    2,
+    2,
+    3,
+    3,
+    4,
+    4,
+    5,
+    6
+  ],
+  "sum_dim_sq": 120,
+  "FS_indicators": [
+    {
+      "dim": 1,
+      "fs": 0.9999999999999998
+    },
+    {
+      "dim": 2,
+      "fs": -0.9999999999999992
+    },
+    {
+      "dim": 2,
+      "fs": -0.999999999999999
+    },
+    {
+      "dim": 3,
+      "fs": 1.0
+    },
+    {
+      "dim": 3,
+      "fs": 0.9999999999999998
+    },
+    {
+      "dim": 4,
+      "fs": 0.9999999999999988
+    },
+    {
+      "dim": 4,
+      "fs": -0.9999999999999989
+    },
+    {
+      "dim": 5,
+      "fs": 1.0000000000000016
+    },
+    {
+      "dim": 6,
+      "fs": -1.0000000000000049
+    }
+  ],
+  "claim1_PASS": true,
+  "claim2_branching_found": true,
+  "claim2_branch_name": "8_s",
+  "claim2_mults_s": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+  ],
+  "claim2_mults_c": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+  ],
+  "claim3_num_faithful_3singlet_reps": 1,
+  "claim3_unique": true,
+  "claim3_candidates": [
+    {
+      "label": "1*[4]_H (realified)",
+      "faithful": true,
+      "singlets_s": 3,
+      "singlets_c": 0,
+      "mults_s": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "mults_c": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "2*[4]_R",
+      "faithful": false,
+      "singlets_s": 2,
+      "singlets_c": 0,
+      "mults_s": [
+        2,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mults_c": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "1*[3]_R + 1*[5]_R",
+      "faithful": false,
+      "singlets_s": 1,
+      "singlets_c": 1,
+      "mults_s": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mults_c": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "1*[3]_R + 1*[5]_R",
+      "faithful": false,
+      "singlets_s": 1,
+      "singlets_c": 1,
+      "mults_s": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mults_c": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "1*[2]_H (realified) + 1*[4]_R",
+      "faithful": true,
+      "singlets_s": 2,
+      "singlets_c": 0,
+      "mults_s": [
+        2,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "mults_c": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "2*[2]_H (realified)",
+      "faithful": true,
+      "singlets_s": 5,
+      "singlets_c": 0,
+      "mults_s": [
+        5,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mults_c": [
+        0,
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "1*[2]_H (realified) + 1*[4]_R",
+      "faithful": true,
+      "singlets_s": 2,
+      "singlets_c": 0,
+      "mults_s": [
+        2,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "mults_c": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "1*[2]_H (realified) + 1*[2]_H (realified)",
+      "faithful": true,
+      "singlets_s": 4,
+      "singlets_c": 0,
+      "mults_s": [
+        4,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "mults_c": [
+        0,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "2*[2]_H (realified)",
+      "faithful": true,
+      "singlets_s": 5,
+      "singlets_c": 0,
+      "mults_s": [
+        5,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mults_c": [
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "1*[1]_R + 1*[3]_R + 1*[4]_R",
+      "faithful": false,
+      "singlets_s": 1,
+      "singlets_c": 1,
+      "mults_s": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "mults_c": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "1*[1]_R + 1*[3]_R + 1*[4]_R",
+      "faithful": false,
+      "singlets_s": 1,
+      "singlets_c": 1,
+      "mults_s": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "mults_c": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "1*[1]_R + 1*[2]_H (realified) + 1*[3]_R",
+      "faithful": true,
+      "singlets_s": 2,
+      "singlets_c": 2,
+      "mults_s": [
+        2,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mults_c": [
+        2,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "1*[1]_R + 1*[2]_H (realified) + 1*[3]_R",
+      "faithful": true,
+      "singlets_s": 2,
+      "singlets_c": 2,
+      "mults_s": [
+        2,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mults_c": [
+        2,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "1*[1]_R + 1*[2]_H (realified) + 1*[3]_R",
+      "faithful": true,
+      "singlets_s": 2,
+      "singlets_c": 2,
+      "mults_s": [
+        2,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mults_c": [
+        2,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "1*[1]_R + 1*[2]_H (realified) + 1*[3]_R",
+      "faithful": true,
+      "singlets_s": 2,
+      "singlets_c": 2,
+      "mults_s": [
+        2,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mults_c": [
+        2,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "2*[1]_R + 2*[3]_R",
+      "faithful": false,
+      "singlets_s": 2,
+      "singlets_c": 2,
+      "mults_s": [
+        2,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mults_c": [
+        2,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "2*[1]_R + 1*[3]_R + 1*[3]_R",
+      "faithful": false,
+      "singlets_s": 2,
+      "singlets_c": 2,
+      "mults_s": [
+        2,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mults_c": [
+        2,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "2*[1]_R + 2*[3]_R",
+      "faithful": false,
+      "singlets_s": 2,
+      "singlets_c": 2,
+      "mults_s": [
+        2,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mults_c": [
+        2,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "3*[1]_R + 1*[5]_R",
+      "faithful": false,
+      "singlets_s": 2,
+      "singlets_c": 2,
+      "mults_s": [
+        2,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mults_c": [
+        2,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "4*[1]_R + 1*[4]_R",
+      "faithful": false,
+      "singlets_s": 2,
+      "singlets_c": 2,
+      "mults_s": [
+        2,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        -1,
+        0
+      ],
+      "mults_c": [
+        2,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "label": "4*[1]_R + 1*[2]_H (realified)",
+      "faithful": true,
+      "singlets_s": 4,
+      "singlets_c": 4,
+      "mults_s": [
+        4,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mults_c": [
+        4,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "4*[1]_R + 1*[2]_H (realified)",
+      "faithful": true,
+      "singlets_s": 4,
+      "singlets_c": 4,
+      "mults_s": [
+        4,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mults_c": [
+        4,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "5*[1]_R + 1*[3]_R",
+      "faithful": false,
+      "singlets_s": 3,
+      "singlets_c": 3,
+      "mults_s": [
+        3,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "mults_c": [
+        3,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "label": "5*[1]_R + 1*[3]_R",
+      "faithful": false,
+      "singlets_s": 3,
+      "singlets_c": 3,
+      "mults_s": [
+        3,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "mults_c": [
+        3,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "label": "8*[1]_R",
+      "faithful": false,
+      "singlets_s": 8,
+      "singlets_c": 8,
+      "mults_s": [
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mults_c": [
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "claim4_invariant_dims": {
+    "0": 1,
+    "1": 1,
+    "2": 1,
+    "3": 1,
+    "4": 1,
+    "5": 2,
+    "6": 3
+  },
+  "claim4_PASS": true
+}

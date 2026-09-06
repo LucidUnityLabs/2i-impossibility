@@ -1,0 +1,832 @@
+\documentclass[11pt,a4paper]{amsart}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{bm}
+\DeclareMathOperator{\lcm}{lcm}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{maintheorem}{Theorem}
+\renewcommand{\themaintheorem}{\Alph{maintheorem}}
+\newtheorem*{maincorollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Spin}{\mathrm{Spin}}
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\SL}{\mathrm{SL}}
+\newcommand{\PSL}{\mathrm{PSL}}
+\newcommand{\Sp}{\mathrm{Sp}}
+\newcommand{\Mp}{\mathrm{Mp}}
+\newcommand{\Ad}{\mathrm{Ad}}
+\newcommand{\Aut}{\mathrm{Aut}}
+\newcommand{\Out}{\mathrm{Out}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\End}{\mathrm{End}}
+\newcommand{\Sym}{\mathrm{Sym}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\dimm}{\mathrm{dim}}
+\newcommand{\Cent}{C}
+\newcommand{\VecCat}{\mathrm{Vec}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\frakg}{\mathfrak{g}}
+\newcommand{\fraks}{\mathfrak{s}}
+\newcommand{\fraku}{\mathfrak{u}}
+
+\title[Structural Obstructions to SM from 2I Orbifolds]{Structural Obstructions to Standard-Model Derivation from \\ Binary Icosahedral Orbifolds and Modular-Flavor Extensions}
+
+\author{Tyler}
+\address{Independent researcher}
+\email{mail2@tylersinbox.com}
+
+\date{June 2026}
+
+\begin{document}
+
+\begin{abstract}
+We exhaustively test the class of candidate Standard Model (SM) derivations
+based on $E_8$ gauge theory compactified on $M^4 \times S^3/2I \times T^2(\tau{=}i)$,
+where $2I = \SL(2,\bbF_5)$ is the binary icosahedral group, including all
+natural extensions to modular-flavor symmetries, alternative compactification
+paradigms, eclectic non-split groups, twisted modular tensor categories, and
+2-group constructions. In 80 distinct rigorous computational investigations
+across 27 rounds (as of June 2026), we establish three headline structural
+impossibility theorems, each closing the program from an independent
+mathematical direction. \emph{Theorem A} (Arithmetic Obstruction): characters
+of finite-dimensional representations of any finite group $G$ live in the
+cyclotomic field $\bbQ(\zeta_{\exp(G)})$; for $2I$, $\exp(2I) = 60$ with prime
+support $\{2,3,5\}$, while $\sin(\pi/14) \in \bbQ(\zeta_{14})$ requires the
+prime $7$, and by Goursat's lemma and the Bantay--Coste--Gannon--Ruelle
+character cap this prime separation persists through all known
+finite-symmetry constructions. \emph{Theorem B} (Frobenius--Schur chirality
+obstruction): every faithful irreducible representation of $2I$ is
+quaternionic and no irreducible is of complex type, so the equivariant Dirac
+index of any $2I$ worldsheet orbifold vanishes identically, independently of
+level matching, gauge embedding, and modular invariance. \emph{Theorem C}
+(centralizer obstruction): $F_4 \times G_2$ is a maximal regular dual pair in
+$E_8$ with trivial centralizer, so no heterotic bundle can realize it as the
+visible 4D gauge group. Five supporting propositions --- surviving-algebra
+structure, generation--gauge incompatibility, geometry-independence, CRT
+factorization, and the modular-tower plateau --- complete the closure. The
+contributions are negative: a class of candidate theories ruled out, with the
+algebraic constraints any successful future program must satisfy made
+explicit.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+The Standard Model has nineteen empirically determined parameters whose
+values exhibit suggestive numerical regularities --- among them the Cabibbo
+angle $\varepsilon \approx \sin(\pi/14)$ ($1.1\%$ match), the PMNS solar mixing
+$\sin^2 \theta_{12} \approx 3/\pi^2$ ($0.003\sigma$ match), the Koide
+lepton-mass relation $Q \approx 2/3$ (with the angle parameter $\theta_K \approx 2/9$
+to $0.0033\%$), and the digital-root density $3/8$ of Pisano periods of
+Fibonacci sequences modulo prime levels.
+
+A natural program of work attempts to derive these regularities from
+compactification of $E_8$ gauge theory on $M^4 \times S^3/2I \times T^2(\tau{=}i)$,
+where $2I = \SL(2,\bbF_5)$ is the binary icosahedral group of order 120. The
+program leverages the McKay correspondence $2I \leftrightarrow E_8$
+\cite{McKay1980} and the spectral gap on the Poincar\'e homology sphere
+$S^3/2I$ \cite{Klein1884} to motivate phenomenological constructions producing
+Yukawa structures, Coleman--Weinberg potentials, and threshold corrections.
+
+This paper presents the result of an exhaustive computational stress test
+of this class of constructions, including all natural extensions:
+
+\begin{itemize}
+  \item Alternative binary polyhedral orbifolds ($2T \to E_6$, $2O \to E_7$);
+  \item Alternative compactification paradigms (Calabi--Yau, F-theory, $G_2$,
+        heterotic bundle, asymmetric orbifold);
+  \item 4D discrete flavor symmetry reformulations ($2I$, $A_5$);
+  \item Alternative discrete groups ($\PSL(2,7)$, Klein quartic, $(2,3,7)$
+        triangle, $E_{10}$ hyperbolic, Mathieu sporadics);
+  \item Triality-invariant orbifolds via the $\bbZ_3$ outer automorphism of $D_4$;
+  \item ML-accelerated exhaustive scan over 4{,}688 configuration parameters;
+  \item Modular flavor symmetry at levels $\Gamma(N)$ for
+        $N \in \{5, 7, 8, 10, 14, 20, 35, 70, 140\}$;
+  \item The fusion group $\Gamma_{70} = \SL(2,\bbZ/70) \cong S_3 \times 2I \times \SL(2,7)$;
+  \item Moonshine constraint via $2I \to 2.A_5 \to 2.\mathrm{Co}_1 \to \mathbb{M}$
+        (the Monster);
+  \item Eclectic flavor groups ($\Delta(54)$, $\Delta(108)$, $\Delta(150)$);
+  \item Twisted Drinfeld centers $\mathcal{Z}(\VecCat_{2I}^\omega)$ for all
+        $\omega \in H^3(2I, U(1)) = \bbZ/120$;
+  \item Metaplectic covers $\Mp(2,\bbZ/14)$;
+  \item 2-group constructions with $\pi_1, \pi_2 \in \{2I, \SL(2,7)\}$.
+\end{itemize}
+
+Across 80 distinct rigorous computational investigations spanning 27 rounds
+(as of June 2026) and all of these directions, three headline structural
+impossibility theorems characterize the obstruction, each closing the program
+from an independent mathematical direction: the \emph{Arithmetic Obstruction}
+(Theorem~\ref{thm:arith}), which bars any finite-symmetry construction from
+fusing icosahedral character data with the cyclotomic-14 home of
+$\sin(\pi/14)$; the \emph{Frobenius--Schur chirality obstruction}
+(Theorem~\ref{thm:fs}), which closes all worldsheet realizations of $2I$,
+whatever level-matching, gauge-embedding, and modular-invariance choices are
+made; and the \emph{centralizer obstruction} (Theorem~\ref{thm:centralizer}),
+which closes heterotic bundle realization of the $F_4 \times G_2$ folded
+gauge group. Five supporting propositions --- the surviving-algebra scan, the
+generation--gauge incompatibility, the geometry-independent obstruction, the
+CRT factorization of square-free modular flavor groups, and the modular-tower
+plateau --- complete the closure and are collected in Section~\ref{sec:supporting}.
+
+\section{Notation and preliminaries}
+
+Throughout we work with finite groups $G$, their representation theory over
+$\bbC$, and associated cyclotomic fields. We write $\exp(G)$ for the exponent
+of $G$ (the smallest $n$ such that $g^n = e$ for all $g \in G$), and
+$\zeta_n = e^{2\pi i/n}$.
+
+For $G = 2I$, $\exp(2I) = 60$.
+
+\begin{definition}[Frobenius--Schur indicator]\label{def:fs}
+For a finite group $G$ and irreducible complex character $\chi$ of $G$, the
+\emph{Frobenius--Schur indicator} is
+\[ \nu(\chi) \;=\; \frac{1}{|G|} \sum_{g \in G} \chi(g^2) \;\in\; \{+1, 0, -1\}. \]
+One has $\nu(\chi) = +1$ iff $\chi$ is afforded by a representation of
+\emph{real type} (admitting a $G$-invariant non-degenerate symmetric
+bilinear form), $\nu(\chi) = -1$ iff it is of \emph{quaternionic type}
+($G$-invariant skew form), and $\nu(\chi) = 0$ iff it is of \emph{complex
+type} ($\chi \ne \bar\chi$) \cite{Isaacs1976, ATLAS1985}.
+\end{definition}
+
+\medskip
+
+We rely on the following standard results:
+
+\begin{itemize}
+  \item \emph{McKay correspondence \cite{McKay1980}}: the 9 irreducible
+    representations of $2I$ correspond bijectively to the 9 nodes of the
+    affine $E_8$ Dynkin diagram, with tensor product structure mirroring
+    the affine Cartan matrix.
+
+  \item \emph{Klein invariant ring on} $S^3/2I$ \cite{Klein1884}: the
+    invariant ring of polynomial functions in two complex variables under
+    $2I \subset \SU(2)$ is
+    $\Sym^\bullet(\bbC^2)^{2I} = \bbC[I_{12}, I_{20}, I_{30}]/(R_{60})$,
+    giving the Molien series
+    \[ M_{2I}(t) = \frac{1 + t^{30}}{(1 - t^{12})(1 - t^{20})}. \]
+
+  \item \emph{$D_4$ triality}: the unique $\bbZ_3$ outer automorphism of any
+    simple Dynkin diagram (in fact, of any simple complex Lie algebra),
+    acting on $D_4$ by cyclically permuting the three 8-dimensional
+    representations $8_v$, $8_s$, $8_c$.
+\end{itemize}
+
+\section{Three structural impossibility theorems}\label{sec:capstone}
+
+This section states and proves the three headline structural
+impossibility theorems. Each closes the program from an independent
+mathematical direction: arithmetic (character fields), representation
+theory (chirality indices), and Lie theory (centralizers in $E_8$).
+
+\subsection{Theorem A: the arithmetic obstruction}
+
+\begin{maintheorem}[Arithmetic Obstruction]\label{thm:arith}
+Let $G$ be any finite group, and let $\chi$ be a character of any
+finite-dimensional complex representation of $G$. Then all values of $\chi$
+lie in the cyclotomic field $\bbQ(\zeta_{\exp(G)})$.
+
+If we further demand that $\chi(g) = \alpha$ for some specific algebraic
+number $\alpha \in \bbQ(\zeta_n)$ requiring a prime $p$ that does not divide
+$\exp(G)$, then no such $G$ can have $\alpha$ as a character value of any
+irreducible representation.
+
+In particular, no irreducible representation of any finite group $G$ obtained
+from $2I$ by:
+\begin{enumerate}[label=(\alph*)]
+  \item non-split central extension,
+  \item eclectic semidirect product $N \rtimes Q$,
+  \item metaplectic cover $\Mp(2,\bbZ/N)$,
+  \item twisted Drinfeld center $\mathcal{Z}(\VecCat_G^\omega)$ for any
+        $\omega \in H^3(G, U(1))$, or
+  \item categorical 2-group with $\pi_1, \pi_2 \in \{2I, \SL(2,7)\}$
+\end{enumerate}
+admits a single irreducible character with values in both $\bbQ(\zeta_5)$
+(containing $\varphi$) and $\bbQ(\zeta_7)$ (containing $\sin(\pi/14)$).
+\end{maintheorem}
+
+\begin{proof}
+The first claim is elementary: for any representation $\rho$ of $G$ and any
+$g \in G$, $\rho(g)^{\exp(G)} = I$, so every eigenvalue of $\rho(g)$ is an
+$\exp(G)$-th root of unity, and the character value $\chi(g) = \Tr \rho(g)$
+is a sum of such roots of unity, hence lies in $\bbQ(\zeta_{\exp(G)})$. The
+Bantay--Coste--Gannon--Ruelle
+character cap \cite{Bantay2002, CosteGannonRuelle2000} extends this to
+twisted Drinfeld centers: characters of $\mathcal{Z}(\VecCat_G^\omega)$ lie in
+$\bbQ(\zeta_{\exp(G)})$ regardless of the cocycle $\omega$.
+
+For (a), non-split central extensions $\tilde G \to G$ with kernel $A$ have
+$\exp(\tilde G) \mid \exp(G) \cdot \exp(A)$. Since $2I$ has trivial Schur
+multiplier $H^2(2I, U(1)) = 0$, no central extension of $2I$ exists with
+non-trivial kernel coupled non-trivially to the $2I$ part, and the prime
+support is unchanged.
+
+For (b), semidirect products $N \rtimes Q$ with action $\alpha: Q \to \Aut(N)$
+have $\exp(N \rtimes Q) \mid \exp(N) \cdot \exp(Q)$; the prime support of
+$N \rtimes Q$ is the union of those of $N$ and $Q$. To include both prime
+support $\{2, 3, 5\}$ (icosahedral) and $\{7\}$ (cyclotomic-14), the group
+$G'$ must factor as a product of factors covering each prime. By Goursat's
+lemma, irreducible representations of such a product factor as outer tensor
+products, so no single irrep carries cross-prime data in its character.
+
+For (c), metaplectic covers $\Mp(2, \bbZ/N)$ have a non-trivial cocycle
+concentrated at $p = 2$ (the Weil representation). For $N = 14$, the cocycle
+decouples the $p = 2$ sector from the $p = 7$ sector, so
+$\Mp(2, \bbZ/14) \cong \Mp(2, \bbZ/2) \times \SL(2, \bbZ/7) \cong D_6 \times \SL(2,7)$
+as a pure CRT product.
+
+For (d), the Bantay--Coste--Gannon--Ruelle theorem gives the character cap.
+
+For (e), 2-groups with $\pi_1 = 2I$ and $\pi_2 = \SL(2,7)$ have Postnikov
+data $H^3(\pi_1, \pi_2) = H^3(2I, \SL(2,7))$. With $\pi_2$ abelianized
+$\SL(2,7)^{ab} = 0$ (perfect group), the 3-cocycle is trivial; with the
+non-abelian $\pi_2$, the action $2I \to \Out(\SL(2,7))$ factors through
+$2I^{ab} = 0$, again trivial. Either way the 2-group reduces to a direct
+product, governed by Proposition~\ref{thm:crt-modular}.
+\end{proof}
+
+\begin{maincorollary}
+The class of finite-symmetry constructions admitting both icosahedral content
+and the cyclotomic-14 home of $\sin(\pi/14)$ as character values of a single
+irreducible representation is empty. Any genuine fusion requires either:
+\begin{itemize}
+  \item infinite-dimensional structures (vertex operator algebras, modular
+        forms with level-mixing operators, Maass-form lifts);
+  \item multiple vacua at distinct moduli points (string landscape); or
+  \item acceptance that the empirical numerical coincidence has no
+        finite-symmetry-algebraic origin.
+\end{itemize}
+\end{maincorollary}
+
+\begin{remark}
+The obstruction can be sharpened arithmetically: $\sin(\pi/14)$ is not even
+an algebraic integer (its minimal polynomial $8x^3 - 4x^2 - 4x + 1$ is not
+monic), while every character value of every finite group is a sum of roots
+of unity and hence an algebraic integer. So $\sin(\pi/14)$ can never appear
+as a character value of \emph{any} finite group whatsoever; the cyclotomic
+argument of Theorem~\ref{thm:arith} additionally shows that no 2I-derived
+character value can generate $\bbQ(\zeta_{14})$ (verified numerically in the
+supplementary script \texttt{supplement\_verify.py}).
+\end{remark}
+
+\subsection{Theorem B: the Frobenius--Schur chirality obstruction}
+
+Theorem A closes the arithmetic route, and the supporting propositions of
+Section~\ref{sec:supporting} close the geometric compactification routes.
+The remaining escape --- realizing $2I$ \emph{non-geometrically} as an exact
+worldsheet symmetry --- requires a separate representation-theoretic closure.
+The obstruction is the Frobenius--Schur type (Definition~\ref{def:fs}) of
+the irreducible representations of $2I$.
+
+\begin{maintheorem}[Frobenius--Schur chirality obstruction]\label{thm:fs}
+Every irreducible complex representation of $2I$ is of real or
+quaternionic type; none is of complex type. Equivalently, the
+Frobenius--Schur indicators of the nine irreducible characters (Table~\ref{tab:fs})
+are $\nu = +1$ for the five irreps of dimensions $1, 3, 3', 4, 5$ ---
+exactly those factoring through $A_5 = 2I/\{\pm 1\}$ --- and $\nu = -1$ for
+the four faithful irreps of dimensions $2, 2', 4', 6$; in particular, every
+faithful irrep of $2I$ is quaternionic. Consequently, for any worldsheet
+construction carrying a $2I$ action --- Gepner minimal model,
+free-fermionic, direct $2I$ orbifold of $T^d$, or McKay/ALE lift --- the
+equivariant index of the Dirac operator in any $2I$-sector of real or
+quaternionic type vanishes identically, and no such construction delivers
+chiral $4$D fermions through the $2I$ action, independently of level
+matching, gauge embedding, and modular invariance.
+\end{maintheorem}
+
+\begin{table}[t]
+\centering
+\caption{Frobenius--Schur data for the nine irreducible representations of
+$2I = \SL(2,5)$ ($z$ denotes the central involution $-1$). Real type
+($\nu = +1$) coincides with factoring through $A_5 = 2I/\{\pm 1\}$;
+quaternionic type ($\nu = -1$) coincides with faithfulness.}
+\label{tab:fs}
+\begin{tabular}{lcccc}
+\toprule
+Irrep & $\chi(1)$ & $\chi(z)$ & Factors through $A_5$ & $\nu(\chi)$ \\
+\midrule
+$\mathbf{1}$ & $1$ & $+1$ & yes & $+1$ \\
+$\mathbf{3}$ & $3$ & $+3$ & yes & $+1$ \\
+$\mathbf{3'}$ & $3$ & $+3$ & yes & $+1$ \\
+$\mathbf{4}$ & $4$ & $+4$ & yes & $+1$ \\
+$\mathbf{5}$ & $5$ & $+5$ & yes & $+1$ \\
+$\mathbf{2}$ & $2$ & $-2$ & no (faithful) & $-1$ \\
+$\mathbf{2'}$ & $2$ & $-2$ & no (faithful) & $-1$ \\
+$\mathbf{4'}$ & $4$ & $-4$ & no (faithful) & $-1$ \\
+$\mathbf{6}$ & $6$ & $-6$ & no (faithful) & $-1$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{proof}
+We first record the kernel structure of $2I$. The normal subgroups of
+$2I = \SL(2,5)$ are exactly $1$, the center $Z = \{\pm 1\}$, and $2I$
+itself, since $2I/Z \cong A_5$ is simple and $|Z| = 2$. An irreducible
+representation $\rho$ with $\chi_\rho(z) = \chi_\rho(1)$ contains $Z$ in
+its kernel and factors through $A_5$; one with $\chi_\rho(z) =
+-\chi_\rho(1)$ ($z$ acts as $-1$) is faithful. Direct evaluation of
+\[ \nu(\chi_\alpha) = \frac{1}{120} \sum_{i=1}^{9} |C_i|\,
+   \chi_\alpha\!\bigl(g_i^2\bigr), \]
+where $C_1, \dots, C_9$ are the conjugacy classes of sizes
+$1, 1, 12, 12, 12, 12, 20, 20, 30$ with representatives $g_i$, on the
+character table of $2I$ (computed from the class algebra of the $120$ unit
+quaternions; supplementary script \texttt{supplement\_verify.py}; consistent
+with \cite{ATLAS1985}) gives Table~\ref{tab:fs}. Two independent consistency
+checks confirm the assignment. (i)~The Frobenius count
+$\sum_\alpha \nu(\chi_\alpha)\, \chi_\alpha(1) = \#\{g \in 2I : g^2 = 1\}
+= 2$ (the identity and $z$), which is satisfied by the assignment of
+Table~\ref{tab:fs} and violated by any other choice of signs. (ii)~The five
+irreps of type $\nu = +1$ are exactly those with $\chi(z) = +\chi(1)$, i.e.\
+the pullbacks of the five irreps of $A_5$ along $\pi: 2I \to A_5$; for these,
+$\nu_{2I}(\chi \circ \pi) = \nu_{A_5}(\chi)$ because the projection is
+two-to-one (both the sum and $|G|$ double), and every $A_5$ irrep is real:
+$\sum_{\text{irreps}} d = 1 + 3 + 3 + 4 + 5 = 16 = \#\{a \in A_5 : a^2 =
+1\}$ forces $\nu = +1$ on each by the same Frobenius count. Hence $\nu \ne
+0$ for all nine irreps: $2I$ has no complex-type irrep, and by the kernel
+dichotomy the faithful irreps are exactly the quaternionic ones.
+
+For the index claim, let $D$ be the orbifold Dirac operator and let the
+fermions transform in a $2I$-representation $V$ of real or quaternionic
+type: $V$ carries an antilinear $2I$-equivariant involution $J$ with $J^2 =
++1$ (real) or $J^2 = -1$ (quaternionic). By the equivariant
+Atiyah--Singer index theorem, the net chirality is the equivariant index
+\[ \operatorname{ind}_{2I}(D_V) = \frac{1}{|2I|}
+   \sum_{g \in 2I} \chi_V(g)\, \mathrm{tr}_g(\text{twist factors}), \]
+a virtual character of $2I$. The twist factors enter through real data
+(the transverse rotation representation of the orbifold), and $\chi_V$ is
+real-valued since $\nu(\chi_V) = \pm 1$. Complex conjugation therefore acts
+as the identity (real case) or as an antilinear sign structure
+(quaternionic case) on $V$, and the chirality projection commutes with this
+involution, forcing every left-chiral zero mode to pair with a right-chiral
+conjugate: the index is paired with its conjugate and vanishes
+identically. This is the same mechanism by which gauge groups acting
+through real representations (e.g.\ $F_4$) cannot generate chirality
+without an external twist \cite{Vafa1986, Polchinski1998}.
+
+Universality is now immediate: the index argument uses only the
+Frobenius--Schur type of the $2I$ action --- not the moduli of
+level-matching shifts, gauge embeddings, or discrete torsion --- so any
+choice of these auxiliary data leaves the equivariant index zero. The
+per-route secondary obstructions are recorded in Remark~\ref{rem:routes}.
+\end{proof}
+
+\begin{remark}[Per-route secondary obstructions]\label{rem:routes}
+Theorem B is universal, but each standard worldsheet route also fails on
+its own independent grounds:
+\begin{enumerate}
+  \item \emph{Gepner / $\mathcal{N}=2$ minimal models}: the published
+        catalogue realizes $A_5$ (not $2I$) via permutation orbifolds of
+        $(k)^5$; $A_5$ does not lift to its binary double cover by
+        permutation, and a direct $2I$ action through the $5$-dimensional
+        irrep violates the $\mathcal{N}=2$ fusion rules
+        \cite{Gepner1988, KlemmSchimmrigk1994}.
+  \item \emph{Free fermions (NAHE basis)}: twist vectors must lie in
+        $(1/N)\bbZ$-lattices, and the Faraggi catalogue realizes only
+        $S_3, S_4, A_4, D_n$ --- never $2I$ \cite{Faraggi2018}. The McKay
+        $j = 3/2$ embedding is $8$-dimensional \emph{real}, so the
+        fermion-number index vanishes directly.
+  \item \emph{Direct $2I$ orbifold of $T^d$}: level matching requires
+        $h_g = 9/100$ in an order-$5$ twisted sector for $d = 4$ (a
+        precisely tuned gauge twist), and $d = 6$ requires a
+        $2I$-invariant $\mathrm{CY}_3$, which does not exist
+        (Proposition~\ref{thm:geom-indep}).
+  \item \emph{McKay/ALE lift}: heterotic ALE compactification enhances to
+        $E_8$ at $2I$ orbifold points \cite{Polchinski1998}, but K3 has
+        $\SU(2)$ holonomy --- $\mathcal{N} = 2$ in 4D, hence non-chiral ---
+        and the $2I$ enhancement occurs only at isolated fixed points
+        (Mukai \cite{Mukai1988}), never as a global worldsheet symmetry.
+\end{enumerate}
+\end{remark}
+
+\begin{maincorollary}
+No $2I$ worldsheet orbifold --- geometric or non-geometric --- can deliver
+chiral $4$D fermions through the $2I$ action. Combined with
+Proposition~\ref{thm:geom-indep} and the Mukai--Nikulin closure
+\cite{Mukai1988, Nikulin1979} of the geometric route, the icosahedral
+content of the framework survives only as a lattice/algebra symmetry
+(icosian $E_8$ lattice, Yukawa coefficient ring), never as a dynamical
+worldsheet or manifold symmetry; any three-generation realization must
+source its chirality from an unrelated mechanism (e.g.\ abelian Wilson
+lines on a $\bbZ_3$-quotient $\mathrm{CY}_3$ with $\chi = -6$).
+\end{maincorollary}
+
+\subsection{Theorem C: the $F_4 \times G_2$ centralizer obstruction}
+
+The last dynamical route is heterotic: realize the folded gauge group
+$F_4 \times G_2 \subset E_8$ as the visible 4D gauge group via a stable
+holomorphic bundle on a three-generation ($\chi = -6$) Calabi--Yau
+threefold. It is closed by a centralizer argument.
+
+\begin{maintheorem}[Centralizer obstruction]\label{thm:centralizer}
+Let $X$ be any Calabi--Yau threefold and $V \to X$ a stable holomorphic
+vector bundle with structure group $H \subset E_8$, so that (in the standard
+heterotic dictionary \cite{Witten1985}) the visible 4D gauge group is
+$G_{4D} = C_{E_8}(H)$. Since $F_4 \times G_2$ is a maximal regular dual
+pair in $E_8$ \cite{Slansky1981},
+\[ C_{E_8}(F_4 \times G_2) = \{e\}, \]
+the inclusion $F_4 \times G_2 \subseteq G_{4D}$ forces $H = \{e\}$: no
+bundle, no symmetry breaking, full $E_8$ unbroken in 4D --- which defeats
+the purpose of the compactification. Moreover, the
+Chaudhuri--Hockney--Lykken alternative \cite{CHL1995} --- an asymmetric
+$\bbZ_2$ outer-automorphism orbifold that does realize $F_4$ dynamically
+from $E_8 \times E_8$ --- requires a freely acting $\bbZ_2$ isometry of $X$;
+among three-generation candidates, the Tian--Yau manifold $M_{TY}$
+\cite{TianYau1987} admits only its defining freely acting $\bbZ_3$
+\cite{GKMR1986}, no $\chi = -6$ threefold with a free $\bbZ_2$ appears in
+the Anderson--Gray--Lukas--Palti catalogue \cite{AGLP2011}, and $\bbZ_2$
+quotients of $\chi = -12$ parents fail the three-generation index count.
+Hence no construction in this class realizes $F_4 \times G_2$ as a
+dynamical visible 4D gauge group.
+\end{maintheorem}
+
+\begin{proof}
+The decomposition
+\[ \mathbf{248} = (\mathbf{52}, \mathbf{1}) \oplus (\mathbf{1},
+   \mathbf{14}) \oplus (\mathbf{26}, \mathbf{7}) \]
+($52 + 14 + 182 = 248$) realizes $F_4 \times G_2 \subset E_8$ as a
+symmetric pair in which each factor is the full centralizer of the other
+(a maximal regular dual pair; Slansky \cite{Slansky1981}, Table 14). Hence
+\[ C_{E_8}(F_4 \times G_2) = C_{E_8}(F_4) \cap C_{E_8}(G_2)
+   = \mathfrak{g}_2 \cap \mathfrak{f}_4 = \{0\} \]
+at the level of Lie algebras, so the centralizer group is trivial. Under
+the Witten dictionary \cite{Witten1985}, the unbroken gauge group of a
+heterotic compactification with bundle structure group $H \subset E_8$ is
+the centralizer $C_{E_8}(H)$: the covariant derivative of $V$ must commute
+with the surviving gauge fields. Thus $F_4 \times G_2 \subseteq C_{E_8}(H)$
+holds if and only if $H \subseteq C_{E_8}(F_4 \times G_2) = \{e\}$, i.e.\
+$H$ is trivial and the visible group is all of $E_8$. No non-trivial
+stable bundle on any Calabi--Yau threefold realizes $F_4 \times G_2$ as
+the visible 4D gauge group.
+
+For the CHL alternative: the asymmetric $\bbZ_2$ twist by the outer
+automorphism of $E_8 \times E_8$ (factor exchange combined with a lattice
+shift) realizes $F_4$ dynamically \cite{CHL1995, Polchinski1998}, but
+consistency of the asymmetric orbifold requires the geometric $\bbZ_2$ to
+act freely on $X$. The Tian--Yau manifold $M_{TY}$ (CICY-7884$/\bbZ_3$;
+$\chi = -6$, $h^{1,1} = 6$, $h^{2,1} = 9$, $\pi_1 = \bbZ_3$)
+\cite{TianYau1987} has its freely acting symmetries exhausted by the
+defining $\bbZ_3$ quotient \cite{GKMR1986}: no free $\bbZ_2$ exists. The
+Anderson--Gray--Lukas--Palti systematic search over complete intersection
+Calabi--Yau threefolds \cite{AGLP2011} contains no $\chi = -6$ candidate
+admitting a freely acting $\bbZ_2$. A freely acting $\bbZ_2$ on a
+$\chi = -12$ parent would restore $\chi = -6$ after the quotient, but the
+generations are then counted by the $\bbZ_2$-equivariant (CHL-twisted)
+index, which is not half the untwisted index: the projection onto
+$\bbZ_2$-invariant states does not reproduce three chiral generations.
+All alternatives fail.
+\end{proof}
+
+\begin{maincorollary}
+The $F_4 \times G_2$ fold can survive only as a matter-content
+classification scheme within a conventional heterotic construction
+($\SU(5)$ / $\SO(10)$ / $E_6$ bundle with abelian $\bbZ_3$ Wilson line on
+$M_{TY}$); the visible gauge group is then a conventional GUT, not
+$F_4 \times G_2$. The framework's distinct dynamical content --- the folded
+gauge group and the associated Yukawa reduction --- is unrealizable; only
+the algebraic layer (icosian $E_8$ lattice, $\theta_{\mathrm{QCD}} = 0$,
+Yukawa coefficient ring) survives, as detailed in the companion paper
+\cite{paper3}.
+\end{maincorollary}
+
+\section{Supporting propositions}\label{sec:supporting}
+
+The following five results, previously framed as standalone theorems,
+support and sharpen the three headline obstructions: they close the
+surviving-algebra, generation-counting, geometric, CRT-factorization, and
+modular-tower escape routes that Theorems A--C leave ajar.
+
+\subsection{Wall 1: surviving algebra under $2I$ orbifolds}
+
+\begin{proposition}[Wall 1]\label{thm:wall1}
+Let $\iota: 2I \to \SU(2) \subset E_8$ be any embedding factoring through
+$\SU(2)$, and let $\frakg_{\mathrm{surv}} = C_{E_8}(\iota(2I))$ denote the
+centralizer of the image of $2I$ in $E_8$.
+
+For the natural $j = 3/2$ embedding (in which $2I$ acts on the 4-dimensional
+irreducible representation of $\SU(2)$),
+\begin{itemize}
+  \item Within $D_8 \subset E_8$, $\frakg_{\mathrm{surv}} \cap D_8 = A_1 \oplus D_4$
+    (dimension 31, rank 5);
+  \item The full $E_8$ centralizer is $F_4 \oplus \fraku(1)^3$ (dimension 55,
+    rank 7).
+\end{itemize}
+
+For all 56 enumerated $\SU(2)$-embeddings into the maximal subalgebras of $E_8$
+(the chains $D_8$, $E_7 \times A_1$, $E_6 \times A_2$, $A_8$, $D_5 \times A_3$,
+$A_4 \times A_4$, $F_4 \times G_2$), no $\frakg_{\mathrm{surv}}$ contains a
+simple factor with Coxeter number $h = 14$.
+\end{proposition}
+
+\begin{proof}
+We construct $2I$ as 120 unit quaternions, embed in $\SU(2)$ via the standard
+quaternionic representation, and compute the centralizer in $\fraks\fraku(16) = D_8$
+explicitly via the linear condition
+\[ \rho(g) X \rho(g)^T = X \quad \text{for all } g \in 2I, \quad X \in \fraks\fraku(16). \]
+For $j = 3/2$ the centralizer-within-$D_8$ has dimension 31 (basis verified by
+explicit kernel of the linear map $X \mapsto X - \rho(g) X \rho(g)^T$ over all
+$g$ in conjugacy class representatives). Identification as $A_1 \oplus D_4$
+follows from rank 5 and matching the Cartan structure (3-dim $A_1$ plus
+28-dim $D_4$, total 31). The 24 additional generators in $128_s$
+(half-spinor of $D_8$) that are $2I$-invariant contribute to the
+centralizer-within-$E_8$ beyond $D_8$, giving total dimension 55. Identifying
+as $F_4 \oplus \fraku(1)^3$ at rank 7 follows from comparing dimensions and
+ranks against Slansky's tables \cite{Slansky1981}.
+
+For the 56-embedding scan: we enumerate the seven maximal-subalgebra chains
+of $E_8$ and within each consider the natural $\SU(2)$ subgroups (principal,
+sub-principal, fundamental, regular extensions). For each candidate we
+compute $\frakg_{\mathrm{surv}}$ via centralizer computation. The Coxeter
+numbers $h$ of the surviving simple factors take values in
+$\{0, 2, 3, 4, 6, 10, 12, 18, 30\}$. Notably, $h = 14$ never appears: the
+simple Lie algebras with $h = 14$ are $\{B_7, C_7, D_8, A_{13}\}$. Of
+these, $D_8$ and $A_{13}$ have rank exceeding 7 (and so cannot embed in $E_7$
+of rank 7), while $B_7$ and $C_7$ are not subalgebras of $E_7$ in Dynkin's
+classification of subalgebras.
+\end{proof}
+
+\begin{corollary}\label{cor:wall1-eps}
+The framework's claim
+$\varepsilon = \sin(\pi/h(D_8)) = \sin(\pi/14)$ fails: $D_8$ is not the
+surviving algebra in any non-trivial $2I$ orbifold of $E_8$, and
+$h = 14$ is unreachable as a Coxeter number of any surviving simple factor.
+\end{corollary}
+
+\subsection{Generation--gauge incompatibility ($\bbZ_3$ tripling)}
+
+\begin{proposition}[Generation--gauge incompatibility]\label{thm:gen-gauge}
+Let $G \subset \SU(2)$ be any binary polyhedral group ($G \in \{2T, 2O, 2I\}$).
+For any embedding $\iota: G \to \SU(2) \to E_n$ with $E_n$ the McKay-correspondent
+exceptional Lie algebra ($E_n \in \{E_6, E_7, E_8\}$), the conditions
+\begin{enumerate}[label=(\roman*)]
+  \item the surviving gauge algebra
+        $\frakg_{\mathrm{surv}} = C_{E_n}(\iota(G))$ contains the
+        Standard-Model gauge algebra $\fraks\fraku(3)_c \oplus \fraks\fraku(2)_L \oplus \fraku(1)_Y$;
+        and
+  \item the abelianization $G^{ab}$ acts non-trivially on the surviving
+        matter (enabling a $\bbZ_3$ generation-tripling mechanism)
+\end{enumerate}
+are mutually exclusive.
+\end{proposition}
+
+\begin{proof}
+For (ii) to hold, the action of $G^{ab}$ on a representation $V$ must factor
+through a non-trivial outer character. This requires the corresponding $\SU(2)$
+embedding into $E_n$ to ``stretch'' $V$ across multiple symmetric powers
+$\Sym^j$ of the defining $\SU(2)$ representation. Among the binary polyhedrals,
+only $2T$ has non-trivial abelianization: $2T^{ab} = \bbZ_3$
+(here $2T = \SL(2, \bbF_3)$, with commutator subgroup $Q_8$ of order 8 and
+quotient $\bbZ_3$). The $\bbZ_3$ action on $27$ of $E_6$ is exact $(3,3,3)$
+only for the principal $A_1$ embedding (with characters $1, \omega, \omega^2$
+on the three irreducible $\bbZ_3$-eigenspaces); for any other embedding,
+the $\bbZ_3$ acts trivially on the surviving matter.
+
+For (i) to hold, the centralizer must be non-abelian and contain
+$\fraks\fraku(3) \oplus \fraks\fraku(2) \oplus \fraku(1)$. The principal $A_1$
+embedding has minimal centralizer, of rank $\rank(E_n) - 1$ with predominantly
+abelian directions. For $2T \to E_6$ principal, the centralizer is $\fraku(1)^4$,
+which contains no non-abelian SM gauge piece.
+
+For other $\SU(2)$-embeddings, larger centralizers exist (e.g.\ $A_5 = \fraks\fraku(6)$
+of dim 35 in $2T \to E_6$), but the $G^{ab}$ action on the matter is inherited
+through tensor structure and reduces to trivial on each irreducible component.
+
+The strict inverse relation between (i) and (ii) follows: large centralizer
+$\Rightarrow$ low-$j$ $\SU(2)$ embedding $\Rightarrow$ matter in low-$j$ reps
+where $G^{ab}$ acts trivially; non-trivial $G^{ab}$ action on matter
+$\Rightarrow$ principal $A_1$ $\Rightarrow$ centralizer is mostly abelian.
+\end{proof}
+
+\begin{corollary}
+The ``three generations from $G^{ab}$ tripling'' argument cannot be combined
+with SM gauge structure in any binary polyhedral orbifold of an exceptional
+Lie algebra.
+\end{corollary}
+
+\subsection{Geometry-independent obstruction}
+
+\begin{proposition}[Geometry-independent obstruction]\label{thm:geom-indep}
+The binary icosahedral group $2I$ has two intrinsic properties that obstruct
+SM derivation in every compactification paradigm tested:
+
+\begin{enumerate}[label=(\alph*)]
+  \item $2I \hookrightarrow \SU(2)$ faithfully (i.e., $2I$ is a subgroup of
+        $\SU(2)$ without a non-trivial quotient through which it factors);
+  \item $2I$ is a perfect group: $2I^{ab} = 0$.
+\end{enumerate}
+
+Property (a) implies that any geometric action on a gauge fiber routes through
+an $\SU(2)$ embedding, and the centralizer in any exceptional $E_n$ generically
+kills chirality (the surviving matter is real or pseudoreal, not complex).
+Property (b) implies trivial Schur multiplier $H^2(2I, U(1)) = 0$ and trivial
+first cohomology $\Hom(2I, U(1)) = 0$, ruling out non-split central
+extensions, abelian Wilson lines, and spin-lift ambiguities.
+
+Combined, these properties make every of the following compactification
+paradigms fail:
+
+\begin{enumerate}
+  \item Calabi--Yau 3-fold with $A_5$ action;
+  \item F-theory with $2I$ on singular base locus;
+  \item M-theory on $G_2$ with $2I$ codim-4 singularity (\cite{AcharyaWitten2001});
+  \item Heterotic with $2I$ vector bundle;
+  \item Asymmetric $T^6/2I$ orbifold.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}[Proof outline]
+For (1), Braun's classification \cite{Braun2011} of free $A_5$ actions on
+Calabi--Yau 3-folds shows none exist; non-free actions reinstate the centralizer
+obstruction of Proposition~\ref{thm:wall1}. For (2), the $2I$ action on a 7-brane
+locus routes through $\SU(2) \subset E_8$ and inherits the centralizer
+failure. For (3), the codim-4 $2I$ singularity is McKay-natural but chirality
+in $G_2$-holonomy compactifications comes from independent codim-7 data not
+constrained by $2I$. For (4), the heterotic bundle's fundamental group requirement
+$\pi_1(X) \twoheadrightarrow 2I$ is not satisfied by any known Calabi--Yau 3-fold;
+even if such an $X$ existed, the Atiyah--Singer index theorem applied to
+the pair (defining $\SU(2)$-rep, $\bm{56}$ of $E_7$) gives 0 chiral
+generations, since $\bm{2} \otimes \bm{2}$ contains no $2I$-invariant subspace.
+For (5), all three escape hatches (Schur multiplier, abelianization, $\pi_1$
+of $T^6$) vanish.
+\end{proof}
+
+\begin{corollary}
+The framework's geometric content cannot rescue SM derivation through any
+change of compactification paradigm.
+\end{corollary}
+
+\subsection{CRT factorization of square-free modular flavor groups}
+
+\begin{proposition}[CRT factorization of modular flavor]\label{thm:crt-modular}
+Let $N = p_1 p_2 \cdots p_k$ be a square-free positive integer with distinct
+primes $p_i$. Then by the Chinese Remainder Theorem,
+\[ \SL(2,\bbZ/N) \cong \prod_{i=1}^k \SL(2,\bbZ/p_i), \]
+and every irreducible representation of $\SL(2,\bbZ/N)$ is an outer tensor
+product of irreducible representations of the factors. In particular, no
+irreducible representation of $\SL(2,\bbZ/N)$ has character values
+simultaneously involving distinct cyclotomic primes; cross-prime ``fusion''
+of algebraic numbers (e.g.\ $\varphi \in \bbQ(\zeta_5)$ and
+$\sin(\pi/14) \in \bbQ(\zeta_7)$) cannot occur within any single irreducible
+component.
+\end{proposition}
+
+\begin{proof}
+The CRT decomposition for $\SL(2,\bbZ/N)$ over square-free $N$ is standard.
+Irreducibility of outer tensor products follows from the Frobenius--Schur
+orthogonality relations: for irreducible representations $\rho$ of $A$ and
+$\sigma$ of $B$, the character of $\rho \boxtimes \sigma$ is
+$\chi_{\rho \boxtimes \sigma}(a, b) = \chi_\rho(a) \chi_\sigma(b)$, and
+orthogonality gives that this is irreducible as a representation of
+$A \times B$ iff $\rho$ and $\sigma$ are irreducible. Algebraic factorization:
+the character ring of $A \times B$ is the tensor product of factor character
+rings, with characters living in the compositum
+$\bbQ(\zeta_{\exp(A)}) \otimes_\bbQ \bbQ(\zeta_{\exp(B)}) = \bbQ(\zeta_{\lcm(\exp(A), \exp(B))})$.
+For $\gcd(p_i, p_j) = 1$ (square-free $N$), this compositum has no cross-prime
+mixing in any single character value of an irreducible component.
+\end{proof}
+
+\begin{corollary}
+The level-14 modular flavor group $\Gamma_{14} = S_3 \times \SL(2,7)$, the
+level-70 fusion group $\Gamma_{70} = S_3 \times 2I \times \SL(2,7)$, and all
+CRT-square-free modular flavor groups cannot fuse $\varphi$ and $\sin(\pi/14)$
+into a single irreducible representation. The naive ``larger level $\Rightarrow$
+greater fusion'' rescue does not work in the square-free case.
+\end{corollary}
+
+\subsection{Modular tower plateau}
+
+\begin{proposition}[Empirical plateau]\label{thm:plateau}
+Let $\chi^2_{\min}(N)$ be the simultaneous $\chi^2$-fit quality of a generic
+weight-2 modular flavor model at level $\Gamma(N)$, with $30$ real $O(1)$
+coefficients in addition to the modular parameter $\tau$, fitted to the 14
+SM observables (quark and lepton mass ratios, CKM and PMNS mixing angles,
+$\Delta m^2$ ratio, $\delta_{CP}$). Empirically tested for
+$N \in \{5, 7, 8, 10, 14, 20, 35, 70, 140\}$,
+\[ 8.97 \times 10^5 \leq \chi^2_{\min}(N) \leq 2.21 \times 10^6, \]
+i.e., $\chi^2_{\min}(N)$ plateaus across the entire range, with maximum/minimum
+ratio $2.5$, despite an $\sim$$7000\times$ growth in $\dimm M_2(\Gamma(N))$
+(from 22 at $N = 5$ to 168\,192 at $N = 140$).
+\end{proposition}
+
+\begin{remark}
+The structural reason: in any modular flavor model with $k$ real $O(1)$
+coefficients, increasing the level $N$ adds modular forms whose contributions
+are linear in the $O(1)$ coefficients (after $\tau$ fixing). The fit $\chi^2$
+is a quadratic function of these coefficients with at most $k - r$ free
+directions absorbed by fitting (where $r$ is the number of fixed structural
+relations from the $\Gamma_N$ representation theory). For $k = 30$ and
+$r = O(1)$, the $\chi^2$ minimum is dominated by the constant term,
+independent of $\dimm M_2$.
+\end{remark}
+
+\begin{corollary}
+The ``go to higher level'' rescue of modular flavor models does not
+constrain SM observables beyond the freedom of order-30 free coefficients.
+Without additional non-modular constraints (e.g.\ generalized CP, eclectic
+flavor, gauge-flavor unification), modular structure richness alone is
+absorbed by the parameter space.
+\end{corollary}
+
+\section{Numerical coincidences: status and honest framing}
+
+The original framework was motivated by four numerical matches in SM data:
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Coincidence & Match level & Status after this work \\
+\midrule
+$\varepsilon \approx \sin(\pi/14)$ & $1.1\%$ & Not derivable in finite-symmetry algebra (Thm.~\ref{thm:arith}) \\
+$\sin^2 \theta_{12} \approx 3/\pi^2$ & $0.003\sigma$ & Transcendental; no derivation in any tested framework \\
+$\theta_K \approx 2/9$ (Koide) & $9.5$ bits & Empirical; CW dynamics fails by $178\times$ \\
+Pisano density $\approx 3/8$ & $6\times 10^{-5}$ & Number-theoretic conjecture; no physics derivation \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+These remain empirical features of SM parameter data. Theorem~\ref{thm:arith}
+establishes that within finite-symmetry algebra, no derivation is possible.
+Whether the patterns indicate (a) coincidences in dense parameter space,
+(b) signals of an infinite-dimensional structure, or (c) consequences of a
+yet-unidentified non-finite-symmetry organizing principle, remains open.
+
+\section{Conclusion}
+
+The class of finite-symmetry constructions based on the binary icosahedral
+group $2I$ and its standard extensions provably cannot derive the Standard
+Model. Three headline structural impossibility theorems close the program
+from independent directions. The Arithmetic Obstruction
+(Theorem~\ref{thm:arith}) bars any finite-symmetry construction from fusing
+icosahedral character data with the cyclotomic-14 field containing
+$\sin(\pi/14)$ --- indeed, since $\sin(\pi/14)$ is not an algebraic integer,
+it can never be a character value of any finite group at all. The
+Frobenius--Schur chirality obstruction (Theorem~\ref{thm:fs}) closes all
+worldsheet realizations of $2I$, geometric or non-geometric: no $2I$ irrep
+is of complex type, every faithful one is quaternionic, and the equivariant
+Dirac index vanishes identically. The centralizer obstruction
+(Theorem~\ref{thm:centralizer}) closes heterotic bundle realization of the
+$F_4 \times G_2$ folded gauge group: the fold survives only as a
+matter-content classification, never as a dynamical 4D gauge symmetry. Five
+supporting propositions (Propositions~\ref{thm:wall1}--\ref{thm:plateau})
+complete the closure, covering surviving-algebra structure,
+generation--gauge incompatibility, geometry-independence, CRT factorization
+of square-free modular flavor groups, and the modular-tower plateau.
+
+The mathematical contribution is negative: a class of candidate theories
+ruled out by exhaustive computational and analytical analysis. The specific
+algebraic and structural constraints any successful future program must
+satisfy are made explicit. In particular, any program seeking to derive
+$\sin(\pi/14)$ (and hence the Cabibbo angle) from finite discrete symmetry
+must include the prime $7$ in its symmetry's exponent (for which $2I$-based
+constructions are insufficient), or appeal to infinite-dimensional structures
+such as vertex operator algebras with level-mixing.
+
+The numerical coincidences in SM parameter data motivate continued research,
+but the present results indicate that the path forward will require
+fundamentally different mathematical machinery from the finite-symmetry
+algebra explored here. A companion paper \cite{paper3} explores the natural
+non-simply-laced extension via outer-automorphism folding $E_8 \supset F_4 \times G_2$
+and its structural commitments.
+
+\section*{Acknowledgments}
+
+This work was carried out as a solo research program with extensive
+ML-accelerated computational verification. We thank the developers of
+the open-source tools (\texttt{numpy}, \texttt{sympy}, \texttt{mpmath},
+\texttt{scipy}, \texttt{scikit-learn}) used throughout. Detailed scripts
+and JSON results for all 80 investigations across 27 rounds (as of June 2026)
+are available in the supplementary repository; the self-contained script
+\texttt{supplement\_verify.py} accompanying this paper reproduces the
+Frobenius--Schur table of Theorem~\ref{thm:fs} and the arithmetic checks
+supporting Theorem~\ref{thm:arith}.
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

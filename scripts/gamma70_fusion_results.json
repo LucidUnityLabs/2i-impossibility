@@ -1,0 +1,297 @@
+{
+  "partA": {
+    "order_SL2_mod_2": 6,
+    "order_SL2_mod_5": 120,
+    "order_SL2_mod_7": 336,
+    "order_SL2_mod_70": 241920,
+    "factorization_check": true,
+    "CRT_sampled_verified": "200/200",
+    "SL2_Z5_order_counts": {
+      "1": 1,
+      "2": 1,
+      "3": 20,
+      "4": 30,
+      "5": 24,
+      "6": 20,
+      "10": 24
+    },
+    "SL2_Z5_matches_2I": true,
+    "structure": "Gamma_70 = SL(2,Z/2) x SL(2,Z/5) x SL(2,Z/7) = S_3 x 2I x SL(2,7)"
+  },
+  "partB": {
+    "num_irreps_S3": 3,
+    "num_irreps_2I": 9,
+    "num_irreps_SL27": 11,
+    "num_irreps_Gamma70": 297,
+    "expected_count": 297,
+    "sum_sq_check": true,
+    "dim_histogram": {
+      "1": 2,
+      "2": 5,
+      "3": 8,
+      "4": 10,
+      "5": 2,
+      "6": 20,
+      "7": 2,
+      "8": 16,
+      "9": 8,
+      "10": 1,
+      "12": 36,
+      "14": 5,
+      "15": 4,
+      "16": 22,
+      "18": 20,
+      "20": 4,
+      "21": 4,
+      "24": 38,
+      "28": 6,
+      "30": 8,
+      "32": 16,
+      "35": 2,
+      "36": 14,
+      "40": 6,
+      "42": 4,
+      "48": 16,
+      "56": 2,
+      "60": 3,
+      "64": 4,
+      "70": 1,
+      "72": 3,
+      "80": 2,
+      "84": 1,
+      "96": 2
+    }
+  },
+  "partC": {
+    "phi_in_2I_characters": true,
+    "sin_pi14_in_SL27_characters": true,
+    "characters_factor_multiplicatively": true,
+    "genuinely_new_fused_irrep": false,
+    "explanation": "Gamma_70 is a direct product, so every irrep is a tensor product and every character value is the multiplicative product of factor character values. phi appears in the 2I factor and sin(pi/14) in the SL(2,7) factor, but they combine only as products -- no new 'irreducible' algebraic combination arises beyond what Q(zeta_35) already provides.",
+    "sample_product": -0.7200928686993746
+  },
+  "partD": {
+    "n_cusps_X70": 3456,
+    "genus_X70": 18433,
+    "dim_table": {
+      "2": {
+        "dim_S_k": 18433,
+        "dim_M_k": 21888,
+        "dim_E_k": 3455
+      },
+      "4": {
+        "dim_S_k": 58752,
+        "dim_M_k": 62208,
+        "dim_E_k": 3456
+      },
+      "6": {
+        "dim_S_k": 99072,
+        "dim_M_k": 102528,
+        "dim_E_k": 3456
+      },
+      "8": {
+        "dim_S_k": 139392,
+        "dim_M_k": 142848,
+        "dim_E_k": 3456
+      },
+      "10": {
+        "dim_S_k": 179712,
+        "dim_M_k": 183168,
+        "dim_E_k": 3456
+      },
+      "12": {
+        "dim_S_k": 220032,
+        "dim_M_k": 223488,
+        "dim_E_k": 3456
+      }
+    },
+    "S2_Gamma0_dims": {
+      "1": 0,
+      "2": 0,
+      "5": 0,
+      "7": 0,
+      "10": 0,
+      "14": 1,
+      "35": 3,
+      "70": 9
+    },
+    "newform_dim_S2_Gamma0_70": 1,
+    "lmfdb_label": "70.2.a.a",
+    "comment": "S_2(Gamma_0(70))^new = 1 (the elliptic curve 70.a1 / 70.2.a.a from LMFDB). So level 70 DOES have a genuine newform, not purely an oldform combination. But this newform is associated to the standard L-function of an elliptic curve and has no special relationship to phi or sin(pi/14)."
+  },
+  "partE": {
+    "fs_S3": [
+      1,
+      1,
+      1
+    ],
+    "fs_2I": [
+      1,
+      -1,
+      -1,
+      1,
+      1,
+      -1,
+      -1,
+      1,
+      1
+    ],
+    "fs_SL27": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      1,
+      1,
+      -1,
+      1
+    ],
+    "n_real_Gamma70": 96,
+    "n_pseudoreal_Gamma70": 93,
+    "n_complex_Gamma70": 108,
+    "complex_irrep_dim_histogram": {
+      "3": 4,
+      "4": 4,
+      "6": 10,
+      "8": 10,
+      "9": 8,
+      "12": 20,
+      "16": 12,
+      "15": 4,
+      "20": 4,
+      "18": 8,
+      "24": 12,
+      "32": 4,
+      "30": 2,
+      "40": 2,
+      "36": 2,
+      "48": 2
+    },
+    "smallest_complex_dims": [
+      3,
+      4,
+      6,
+      8,
+      9,
+      12,
+      15,
+      16,
+      18,
+      20
+    ],
+    "chirality_source": "SL(2,7) factor (3 vs 3-bar, 4 vs 4-bar)",
+    "remark": "Gamma_70 has complex irreps inherited from SL(2,7); 2I alone has none. Chirality 'lives' on the SL(2,7) factor in this factorization."
+  },
+  "partF": {
+    "all_3dim_decompositions": [
+      [
+        1,
+        1,
+        3
+      ],
+      [
+        1,
+        1,
+        3
+      ],
+      [
+        1,
+        3,
+        1
+      ],
+      [
+        1,
+        3,
+        1
+      ],
+      [
+        1,
+        1,
+        3
+      ],
+      [
+        1,
+        1,
+        3
+      ],
+      [
+        1,
+        3,
+        1
+      ],
+      [
+        1,
+        3,
+        1
+      ]
+    ],
+    "num_3dim_irreps": 8,
+    "remark": "Every 3-dim irrep of Gamma_70 is either pure 2I-triplet x trivial(SL27) or trivial(2I) x SL27-triplet, decorated with an S_3 parity. No 'fused' 3-dim irrep exists, so SM 3-generation structure cannot couple to both icosahedral and SL(2,7) sectors simultaneously."
+  },
+  "partG": {
+    "comparison_table": [
+      {
+        "level": 5,
+        "group": "2I = SL(2,Z/5)",
+        "order": 120,
+        "char_field": "Q(sqrt5)"
+      },
+      {
+        "level": 7,
+        "group": "SL(2,7)",
+        "order": 336,
+        "char_field": "Q(zeta_7), Q(zeta_8)"
+      },
+      {
+        "level": 14,
+        "group": "S_3 x SL(2,7)",
+        "order": 2016,
+        "char_field": "Q(zeta_7), Q(zeta_8)"
+      },
+      {
+        "level": 35,
+        "group": "2I x SL(2,7)",
+        "order": 40320,
+        "char_field": "Q(zeta_35)"
+      },
+      {
+        "level": 70,
+        "group": "S_3 x 2I x SL(2,7)",
+        "order": 241920,
+        "char_field": "Q(zeta_35)"
+      }
+    ],
+    "level35_irrep_count": 99,
+    "level35_sum_sq_check": true,
+    "level35_newform_dim_S2_Gamma0": 3,
+    "level70_relative_to_level35": "Level 70 = level 35 with an extra S_3 = SL(2,Z/2) parity factor. The parity adds a Z_2 charge but cannot generate new algebraic / cyclotomic content. All 'fusion' content already lives at level 35."
+  },
+  "partH": {
+    "estimates": {
+      "level7_lepton_chi2_min": "~30-50 (Ding-King-Liu 2020 best fits)",
+      "level14_lepton_chi2_min": "~100 (no improvement over level 7)",
+      "level35_lepton_chi2_min_estimate": "~5-30 (2I factor adds free parameters, but no fundamentally new structure)",
+      "level70_lepton_chi2_min_estimate": "~5-30 (same as level 35, parity Z_2 adds no qualitative power)",
+      "ckm_top_to_charm_ratio_achievable": "yes (O(10^2) achievable via q-suppression at moderate Im tau)",
+      "ckm_charm_to_up_ratio_achievable": "marginal (O(600) requires exponential modulus dependence, fine-tuning)",
+      "cabibbo_angle_achievable": "yes generically (sin theta_C ~ sin(pi/14) ~ 0.22 IS the right size)"
+    },
+    "sin_pi14": 0.2225209339563144,
+    "sin_thetaC": 0.2253,
+    "rel_deviation_pct": 1.2334958027898835,
+    "comment": "The Cabibbo-angle / sin(pi/14) coincidence pre-exists at level 7. Levels 14, 35, 70 do not improve on this. The CKM hierarchy m_c/m_u is the harder problem and is not natural in any of these levels without significant tuning of Im(tau)."
+  },
+  "partI": {
+    "CRT_confirmed": true,
+    "genuine_fusion": false,
+    "complex_irreps_present": true,
+    "chirality_source": "SL(2,7) factor",
+    "newforms_at_level_70_exist": true,
+    "order_24_coincidence_meaningful": false,
+    "level_35_already_captures_fusion": true,
+    "verdict_summary": "Gamma_70 is structurally a direct product S_3 x 2I x SL(2,7). It contains phi and sin(pi/14) as character values of separate factors, but they combine only multiplicatively. No genuinely new algebraic / fused irrep exists. Level 70 is the CRT closure of the discrete cyclotomic program, not its missing fusion link. Honest answer: closure, not fusion."
+  }
+}

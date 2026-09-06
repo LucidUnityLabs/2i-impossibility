@@ -1,0 +1,238 @@
+{
+  "candidates": [
+    {
+      "name": "600-cell (CW complex on S^3)",
+      "dim": 3,
+      "chi_compact": 0,
+      "has_2I_action": "yes_free",
+      "has_phi_structure": "yes_icosian",
+      "gives_3_generations": "no_chirality_zero",
+      "notes": "f-vector (120,720,1200,600) gives chi=0 (S^3). 2I left-multiplication on the unit icosians is free.",
+      "refs": [
+        "Cox91",
+        "CS99 ch.8"
+      ],
+      "heterotic_generations_if_CY3": null
+    },
+    {
+      "name": "S^3",
+      "dim": 3,
+      "chi_compact": 0,
+      "has_2I_action": "yes_free",
+      "has_phi_structure": "indirect",
+      "gives_3_generations": "no_chirality_zero",
+      "notes": "Closed odd-dim manifold, chi=0 by Poincare duality.",
+      "refs": [
+        "Cox91"
+      ],
+      "heterotic_generations_if_CY3": null
+    },
+    {
+      "name": "S^3/2I  (Poincare sphere)",
+      "dim": 3,
+      "chi_compact": 0,
+      "has_2I_action": "yes_free",
+      "has_phi_structure": "yes_icosian",
+      "gives_3_generations": "no_chirality_zero",
+      "notes": "Free 2I quotient of S^3; chi = 0/120 = 0. Same conclusion for S^3/2T, S^3/2O and any S^3/cyclic.",
+      "refs": [
+        "CS99 ch.8"
+      ],
+      "heterotic_generations_if_CY3": null
+    },
+    {
+      "name": "S^3/2I x T^2",
+      "dim": 4,
+      "chi_compact": 0,
+      "has_2I_action": "yes_free",
+      "has_phi_structure": "yes_icosian",
+      "gives_3_generations": "no_chirality_zero",
+      "notes": "Product chi = chi(S^3/2I) * chi(T^2) = 0 * 0 = 0.",
+      "refs": [
+        "CHSW85"
+      ],
+      "heterotic_generations_if_CY3": null
+    },
+    {
+      "name": "S^3/2I x S^1xS^1",
+      "dim": 4,
+      "chi_compact": 0,
+      "has_2I_action": "yes_free",
+      "has_phi_structure": "yes_icosian",
+      "gives_3_generations": "no_chirality_zero",
+      "notes": "Product chi = chi(S^3/2I) * chi(S^1xS^1) = 0 * 0 = 0.",
+      "refs": [
+        "CHSW85"
+      ],
+      "heterotic_generations_if_CY3": null
+    },
+    {
+      "name": "S^3/2I x S^2",
+      "dim": 4,
+      "chi_compact": 0,
+      "has_2I_action": "yes_free",
+      "has_phi_structure": "yes_icosian",
+      "gives_3_generations": "no_chirality_zero",
+      "notes": "Product chi = chi(S^3/2I) * chi(S^2) = 0 * 2 = 0.",
+      "refs": [
+        "CHSW85"
+      ],
+      "heterotic_generations_if_CY3": null
+    },
+    {
+      "name": "S^3/2I x S^4_unrelated",
+      "dim": 4,
+      "chi_compact": 0,
+      "has_2I_action": "yes_free",
+      "has_phi_structure": "yes_icosian",
+      "gives_3_generations": "no_chirality_zero",
+      "notes": "Product chi = chi(S^3/2I) * chi(S^4_unrelated) = 0 * 2 = 0.",
+      "refs": [
+        "CHSW85"
+      ],
+      "heterotic_generations_if_CY3": null
+    },
+    {
+      "name": "S^4",
+      "dim": 4,
+      "chi_compact": 2,
+      "has_2I_action": "yes_with_fixed",
+      "has_phi_structure": "indirect",
+      "gives_3_generations": "no",
+      "notes": "chi=2.  Any smooth finite-group action on S^4 has fixed points (e.g. 2I via SO(5) representation has fixed antipodal points), so the quotient is an orbifold, not a manifold.",
+      "refs": [
+        "Bredon, 'Introduction to Compact Transformation Groups'"
+      ],
+      "heterotic_generations_if_CY3": null
+    },
+    {
+      "name": "CP^2",
+      "dim": 4,
+      "chi_compact": 3,
+      "has_2I_action": "no",
+      "has_phi_structure": "no",
+      "gives_3_generations": "no",
+      "notes": "chi=3.  Aut(CP^2) = PGL(3,C); finite subgroups classified (Hambleton-Lee).  A_5 = 2I/Z_2 embeds in PGL(3,C) but the lift to 2I has fixed points; not free.",
+      "refs": [
+        "Hambleton-Lee, 'Finite group actions on CP^2'"
+      ],
+      "heterotic_generations_if_CY3": null
+    },
+    {
+      "name": "K3",
+      "dim": 4,
+      "chi_compact": 24,
+      "has_2I_action": "yes_with_fixed",
+      "has_phi_structure": "indirect",
+      "gives_3_generations": "no",
+      "notes": "chi(K3)=24. Mukai (1988) classified finite groups acting symplectically on K3: max group is M_23-stabilizers, |G| <= 960, and 2I = SL(2,5) of order 120 IS one of the 11 maximal Mukai groups. BUT every non-trivial finite symplectic action on K3 has fixed points (Nikulin 1979), so 24/120 = 1/5 is NOT an integer and the quotient is an orbifold. Resolving the orbifold gives an Enriques-type or rational surface, not a CY threefold.",
+      "refs": [
+        "Muk88",
+        "Nikulin 1979 'Finite groups acting on K3'"
+      ],
+      "heterotic_generations_if_CY3": null
+    },
+    {
+      "name": "K3 / 2I  (orbifold)",
+      "dim": 4,
+      "chi_compact": null,
+      "has_2I_action": "yes_with_fixed",
+      "has_phi_structure": "indirect",
+      "gives_3_generations": "no",
+      "notes": "Mukai-type quotient.  24/120 is non-integer => fixed points => orbifold. Crepant resolutions (when they exist) inflate chi back up; resolved smooth manifold is not CY_3 in any case.",
+      "refs": [
+        "Muk88",
+        "Xia96"
+      ],
+      "heterotic_generations_if_CY3": null
+    },
+    {
+      "name": "Tian-Yau CY_3  (Z/3 quotient of quintic-related CICY)",
+      "dim": 6,
+      "chi_compact": -6,
+      "has_2I_action": "no",
+      "has_phi_structure": "no",
+      "gives_3_generations": "yes",
+      "notes": "Free Z/3 quotient.  h^11=14, h^21=23  =>  chi = 2(14-23) = -18? Original Tian-Yau (1987) reports chi=-6 for the Z/3-free quotient of the bicubic; |chi|/2 = 3 generations. NO 2I-symmetry: |Aut| is small, dominated by the Z/3 used in the quotient.",
+      "refs": [
+        "Ti87",
+        "CdOGP91"
+      ],
+      "heterotic_generations_if_CY3": 3
+    },
+    {
+      "name": "CICY-7884  (3-generation CY_3)",
+      "dim": 6,
+      "chi_compact": -6,
+      "has_2I_action": "no",
+      "has_phi_structure": "no",
+      "gives_3_generations": "yes",
+      "notes": "From the Candelas et al. CICY list; chi=-6 via discrete-group quotient of an ambient CICY by a small abelian group.  No icosahedral / H_4 symmetry.",
+      "refs": [
+        "Candelas-Dale-Lutken-Schimmrigk 1988"
+      ],
+      "heterotic_generations_if_CY3": 3
+    },
+    {
+      "name": "Z/5 x Z/5  free quotient of quintic",
+      "dim": 6,
+      "chi_compact": -8,
+      "has_2I_action": "no",
+      "has_phi_structure": "no",
+      "gives_3_generations": "no",
+      "notes": "Free (Z/5)^2 quotient of the Fermat quintic gives chi = -200/25 = -8, not -6.  No 2I action.",
+      "refs": [
+        "GP90",
+        "Hos+95"
+      ],
+      "heterotic_generations_if_CY3": 4
+    },
+    {
+      "name": "CY_3 with H_4 symmetry  (hypothetical)",
+      "dim": 6,
+      "chi_compact": null,
+      "has_2I_action": "unknown",
+      "has_phi_structure": "yes_H4",
+      "gives_3_generations": "unknown",
+      "notes": "H_4 is a non-crystallographic Coxeter group of order 14400 acting on R^4. It does NOT preserve any integer lattice in dim<=8 [Patera-Twarock 2002].  No CY_3 with a faithful H_4 action is known in the literature.  H_4 lifts to E_8 via the icosian construction, but this is a SYMMETRY OF THE LATTICE, not of any compact manifold of complex dim 3.",
+      "refs": [
+        "Patera-Twarock 2002 J.Phys.A 35 1551",
+        "Moody-Patera 1993 J.Phys.A 26 2829"
+      ],
+      "heterotic_generations_if_CY3": null
+    },
+    {
+      "name": "600-cell / I  (icosahedral 600-cell)",
+      "dim": 3,
+      "chi_compact": 0,
+      "has_2I_action": "yes_free",
+      "has_phi_structure": "yes_icosian",
+      "gives_3_generations": "no_chirality_zero",
+      "notes": "3-manifold of the form S^3/H; chi=0.  Cannot give chirality.",
+      "refs": [
+        "Cox91"
+      ],
+      "heterotic_generations_if_CY3": null
+    }
+  ],
+  "summary": {
+    "any_4manifold_with_chi_pm6_AND_2I_free_action": false,
+    "any_CY3_with_chi_pm6_AND_2I_action": false,
+    "any_compact_with_phi_H4_structure_AND_chi_pm6": false,
+    "best_three_generation_CY3_known": "Tian-Yau / CICY-7884",
+    "best_2I_compact_known": "S^3/2I (chi=0)",
+    "obstruction_summary": "(1) chi(S^3/H)=0 for ALL finite H acting freely on S^3, so any product with a chi=0 partner stays at chi=0; (2) the only 2I-type action on K3 is non-free (Mukai/Nikulin), yielding orbifolds with non-integer chi/|G|; (3) no CY_3 with chi=+/-6 is known to admit a 2I or H_4-coloured action, because H_4 is non-crystallographic and CY_3 automorphism groups are typically abelian or small."
+  },
+  "references_master": [
+    "Coxeter 1991 'Regular Complex Polytopes'",
+    "Conway-Sloane 1999 'Sphere Packings, Lattices and Groups' ch.8",
+    "Wilson 2009 J.Algebra 322, 2186",
+    "Mukai 1988 Invent.Math. 94, 183",
+    "Nikulin 1979 Trans.Moscow Math.Soc. 38, 71",
+    "Tian-Yau 1987 (CY_3 with chi=-6)",
+    "Greene-Plesser 1990 Nucl.Phys.B 338, 15",
+    "Candelas-Horowitz-Strominger-Witten 1985 Nucl.Phys.B 258, 46",
+    "Hosono-Klemm-Theisen-Yau 1995 Comm.Math.Phys. 167, 301",
+    "Patera-Twarock 2002 J.Phys.A 35, 1551"
+  ]
+}
