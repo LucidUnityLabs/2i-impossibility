@@ -79,7 +79,7 @@ No DOI yet. Cite this repository:
 
     Tyler, "Structural Obstructions to Standard-Model Derivation from
     Binary Icosahedral Orbifolds and Modular-Flavor Extensions,"
-    https://github.com/im-tyler/2i-impossibility (2026).
+    https://github.com/LucidUnityLabs/2i-impossibility (2026).
 
 ## License
 
