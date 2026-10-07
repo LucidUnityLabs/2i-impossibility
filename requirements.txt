@@ -1,0 +1,3 @@
+# Tested baseline, not a claim that these are the latest releases.
+sympy==1.14.0
+mpmath==1.3.0

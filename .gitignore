@@ -1,17 +1,22 @@
-# OS junk
+# OS/editor state
 .DS_Store
 Thumbs.db
 desktop.ini
 *~
-
-# Python
+# Local Python/build environments
+.venv/
+venv/
 __pycache__/
-*.pyc
-
-# LaTeX build artifacts (keep the published PDF)
+*.py[cod]
+.pytest_cache/
+.coverage
+build/
+wheelhouse/
+# TeX scratch (published PDF remains tracked)
 *.aux
 *.bbl
 *.blg
+*.log
 *.fls
 *.fdb_latexmk
 *.out

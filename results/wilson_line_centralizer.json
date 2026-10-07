@@ -1,0 +1,77 @@
+{
+  "data": {
+    "fixed_adjoint_dimensions": {
+      "principal_E6": 0,
+      "principal_E6_in_E8": 14,
+      "principal_E8": 0,
+      "regular_A1_in_E6_in_E8": 133,
+      "regular_A1_in_E8": 133
+    },
+    "global_form_warning": "Principal E6/E8 maps kill the central involution of 2I; their image is A5.",
+    "natural_j_3_over_2": {
+      "D8_fixed_dimension": 31,
+      "E8_fixed_dimension": 55,
+      "E8_fixed_lie_type": "B5 = so(11)",
+      "E8_roots_preserved_by_simultaneous_triality": 240,
+      "coxeter_number": 10,
+      "global_centralizer_group": "not identified",
+      "proof": "Triality gives the 5+11 orthogonal splitting; so(11) is an exhibited commuting subalgebra and exhausts all 55 invariants.",
+      "rank": 5,
+      "spinor_fixed_dimension": 24
+    },
+    "not_verified": [
+      "No Lie type is inferred from dimension alone; natural-j=3/2 type uses an exhibited so(11) subalgebra.",
+      "No exhaustive scan of E8 embeddings or Wilson-line homomorphisms.",
+      "No statement that a zero-dimensional centralizer group is trivial."
+    ],
+    "principal_branchings_twice_spin": {
+      "E6": {
+        "10": 1,
+        "14": 1,
+        "16": 1,
+        "2": 1,
+        "22": 1,
+        "8": 1
+      },
+      "E6_27": {
+        "0": 1,
+        "16": 1,
+        "8": 1
+      },
+      "E8": {
+        "14": 1,
+        "2": 1,
+        "22": 1,
+        "26": 1,
+        "34": 1,
+        "38": 1,
+        "46": 1,
+        "58": 1
+      }
+    }
+  },
+  "provenance": {
+    "arithmetic": "exact; integer, rational and algebraic operations only",
+    "dependency_files_sha256": {
+      ".python-version": "e72b03ed5b70312f2782f2b05055c55b24670e126d50e24c4f2c559bf288f810",
+      "requirements.lock": "cbf55e9560a7a8c17dcaea80658f298fc4f6659f7b41afd4d7368fd175dc2158",
+      "requirements.txt": "84a7c8ce54430f094b26bfa3679ad6d0096017190e097e32c18533dc57606365"
+    },
+    "source_sha256": {
+      "compactification_search.py": "406b3f64906635f5938b2140bce15f32a006239c0c1b690603df4bad029d5dda",
+      "eclectic_nonsplit.py": "52b29a92277d58488a559badf251a88a0dc24c6fd1aa2506491c8d3abe13130c",
+      "exact_2i.py": "cb67cb370f6fb0bc93177aa3d1fed53526b1826c1602d3c5a85c7fce1618bca0",
+      "exact_sl2.py": "8ed8c118bf02c910368b2a1a3d41eebfb7923993e23f8a22b565f4a2cff1391c",
+      "gamma70_fusion.py": "9c2d0b64d5432937b9f1d7eb74c34561e25bd48d6363c9dc0b0c84ffd6820e81",
+      "principal_weights.py": "6ad7e95e4ca16951d248e5123b9e4854f447d9753c045c48d9a7455738567d61",
+      "run_verifiers.py": "eba327f8ea45c6d6ccb1cd45ca0b9e77ab868419906ab6285b4567172526ef08",
+      "supplement_verify.py": "57de6b31b1c8e3ffc53c1468a47b7319c4c50084bb4cf2bba42a029815056bf1",
+      "verification_io.py": "cd3a0ef2a5f360393ebcd12c2de93bf6f61eb21700c327ddcb7a80a6b3d714ab",
+      "verify_2I_reps.py": "336e3ab5a7ae096c6ab0cf950a4d703c726de43995cff2c69f730c9cbedc04b3",
+      "wilson_line_centralizer.py": "be0e2321b772ace2a0f90d3e5608447312b25de8f8220fc6640cad11d471eaa2"
+    }
+  },
+  "schema_version": 1,
+  "scope": "Specified E8/E6 embeddings, with all mixed E6 x A2 summands; dimensions, not a 56-embedding scan.",
+  "verification_status": "passed"
+}

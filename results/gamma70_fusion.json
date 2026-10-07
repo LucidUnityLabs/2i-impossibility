@@ -1,0 +1,496 @@
+{
+  "data": {
+    "Gamma0_weight2_new_dimensions": {
+      "1": 0,
+      "10": 0,
+      "14": 1,
+      "2": 0,
+      "35": 3,
+      "5": 0,
+      "7": 0,
+      "70": 1
+    },
+    "Gamma70_modular": {
+      "PSL2_index": 120960,
+      "SL2_index": 241920,
+      "cusps": 1728,
+      "dimensions": {
+        "10": {
+          "cusp": 89856,
+          "eisenstein": 1728,
+          "modular": 91584
+        },
+        "12": {
+          "cusp": 110016,
+          "eisenstein": 1728,
+          "modular": 111744
+        },
+        "2": {
+          "cusp": 9217,
+          "eisenstein": 1727,
+          "modular": 10944
+        },
+        "4": {
+          "cusp": 29376,
+          "eisenstein": 1728,
+          "modular": 31104
+        },
+        "6": {
+          "cusp": 49536,
+          "eisenstein": 1728,
+          "modular": 51264
+        },
+        "8": {
+          "cusp": 69696,
+          "eisenstein": 1728,
+          "modular": 71424
+        }
+      },
+      "genus": 9217
+    },
+    "SL2_7_certificate": {
+      "classes": [
+        {
+          "order": 1,
+          "representative": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "size": 1
+        },
+        {
+          "order": 2,
+          "representative": [
+            6,
+            0,
+            0,
+            6
+          ],
+          "size": 1
+        },
+        {
+          "order": 3,
+          "representative": [
+            0,
+            1,
+            6,
+            6
+          ],
+          "size": 56
+        },
+        {
+          "order": 4,
+          "representative": [
+            0,
+            1,
+            6,
+            0
+          ],
+          "size": 42
+        },
+        {
+          "order": 6,
+          "representative": [
+            0,
+            1,
+            6,
+            1
+          ],
+          "size": 56
+        },
+        {
+          "order": 7,
+          "representative": [
+            0,
+            1,
+            6,
+            2
+          ],
+          "size": 24
+        },
+        {
+          "order": 7,
+          "representative": [
+            0,
+            3,
+            2,
+            2
+          ],
+          "size": 24
+        },
+        {
+          "order": 8,
+          "representative": [
+            0,
+            1,
+            6,
+            3
+          ],
+          "size": 42
+        },
+        {
+          "order": 8,
+          "representative": [
+            0,
+            1,
+            6,
+            4
+          ],
+          "size": 42
+        },
+        {
+          "order": 14,
+          "representative": [
+            0,
+            1,
+            6,
+            5
+          ],
+          "size": 24
+        },
+        {
+          "order": 14,
+          "representative": [
+            0,
+            3,
+            2,
+            5
+          ],
+          "size": 24
+        }
+      ],
+      "exponent": 168,
+      "order": 336,
+      "p": 7,
+      "records": [
+        {
+          "character": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ],
+          "dimension": 1,
+          "fs": 1,
+          "label": "SL2_7_1"
+        },
+        {
+          "character": [
+            "3",
+            "3",
+            "0",
+            "-1",
+            "0",
+            "-1/2 - sqrt(7)*I/2",
+            "-1/2 + sqrt(7)*I/2",
+            "1",
+            "1",
+            "-1/2 + sqrt(7)*I/2",
+            "-1/2 - sqrt(7)*I/2"
+          ],
+          "dimension": 3,
+          "fs": 0,
+          "label": "SL2_7_2"
+        },
+        {
+          "character": [
+            "3",
+            "3",
+            "0",
+            "-1",
+            "0",
+            "-1/2 + sqrt(7)*I/2",
+            "-1/2 - sqrt(7)*I/2",
+            "1",
+            "1",
+            "-1/2 - sqrt(7)*I/2",
+            "-1/2 + sqrt(7)*I/2"
+          ],
+          "dimension": 3,
+          "fs": 0,
+          "label": "SL2_7_3"
+        },
+        {
+          "character": [
+            "4",
+            "-4",
+            "1",
+            "0",
+            "-1",
+            "1/2 - sqrt(7)*I/2",
+            "1/2 + sqrt(7)*I/2",
+            "0",
+            "0",
+            "-1/2 - sqrt(7)*I/2",
+            "-1/2 + sqrt(7)*I/2"
+          ],
+          "dimension": 4,
+          "fs": 0,
+          "label": "SL2_7_4"
+        },
+        {
+          "character": [
+            "4",
+            "-4",
+            "1",
+            "0",
+            "-1",
+            "1/2 + sqrt(7)*I/2",
+            "1/2 - sqrt(7)*I/2",
+            "0",
+            "0",
+            "-1/2 + sqrt(7)*I/2",
+            "-1/2 - sqrt(7)*I/2"
+          ],
+          "dimension": 4,
+          "fs": 0,
+          "label": "SL2_7_5"
+        },
+        {
+          "character": [
+            "6",
+            "-6",
+            "0",
+            "0",
+            "0",
+            "-1",
+            "-1",
+            "-sqrt(2)",
+            "sqrt(2)",
+            "1",
+            "1"
+          ],
+          "dimension": 6,
+          "fs": -1,
+          "label": "SL2_7_6"
+        },
+        {
+          "character": [
+            "6",
+            "-6",
+            "0",
+            "0",
+            "0",
+            "-1",
+            "-1",
+            "sqrt(2)",
+            "-sqrt(2)",
+            "1",
+            "1"
+          ],
+          "dimension": 6,
+          "fs": -1,
+          "label": "SL2_7_7"
+        },
+        {
+          "character": [
+            "6",
+            "6",
+            "0",
+            "2",
+            "0",
+            "-1",
+            "-1",
+            "0",
+            "0",
+            "-1",
+            "-1"
+          ],
+          "dimension": 6,
+          "fs": 1,
+          "label": "SL2_7_8"
+        },
+        {
+          "character": [
+            "7",
+            "7",
+            "1",
+            "-1",
+            "1",
+            "0",
+            "0",
+            "-1",
+            "-1",
+            "0",
+            "0"
+          ],
+          "dimension": 7,
+          "fs": 1,
+          "label": "SL2_7_9"
+        },
+        {
+          "character": [
+            "8",
+            "-8",
+            "-1",
+            "0",
+            "1",
+            "1",
+            "1",
+            "0",
+            "0",
+            "-1",
+            "-1"
+          ],
+          "dimension": 8,
+          "fs": -1,
+          "label": "SL2_7_10"
+        },
+        {
+          "character": [
+            "8",
+            "8",
+            "-1",
+            "0",
+            "-1",
+            "1",
+            "1",
+            "0",
+            "0",
+            "1",
+            "1"
+          ],
+          "dimension": 8,
+          "fs": 1,
+          "label": "SL2_7_11"
+        }
+      ]
+    },
+    "character_fields": {
+      "Gamma70_character_field": "Q(sqrt(5),sqrt(2),sqrt(-7))",
+      "Gamma70_field_degree": 8,
+      "SL2_7_character_field": "Q(sqrt(2),sqrt(-7))",
+      "SL2_7_field_degree": 4,
+      "proof": "All computed values lie in the stated field and generate it; cubic degree does not divide eight.",
+      "sine_or_twice_sine_in_character_field": false
+    },
+    "crt": {
+      "consequence": "Entrywise CRT respects matrix multiplication and determinant, hence induces SL2 isomorphism.",
+      "residue_bijection_size": 70,
+      "ring_pairs_checked": 4900
+    },
+    "dimension_counts": {
+      "1": 2,
+      "10": 1,
+      "12": 36,
+      "14": 5,
+      "15": 4,
+      "16": 22,
+      "18": 20,
+      "2": 5,
+      "20": 4,
+      "21": 4,
+      "24": 38,
+      "28": 6,
+      "3": 8,
+      "30": 8,
+      "32": 16,
+      "35": 2,
+      "36": 14,
+      "4": 10,
+      "40": 6,
+      "42": 4,
+      "48": 16,
+      "5": 2,
+      "56": 2,
+      "6": 20,
+      "60": 3,
+      "64": 4,
+      "7": 2,
+      "70": 1,
+      "72": 3,
+      "8": 16,
+      "80": 2,
+      "84": 1,
+      "9": 8,
+      "96": 2
+    },
+    "dimension_three_irreps": [
+      [
+        "SL2_2_1",
+        "1",
+        "SL2_7_2"
+      ],
+      [
+        "SL2_2_1",
+        "1",
+        "SL2_7_3"
+      ],
+      [
+        "SL2_2_1",
+        "3a",
+        "SL2_7_1"
+      ],
+      [
+        "SL2_2_1",
+        "3b",
+        "SL2_7_1"
+      ],
+      [
+        "SL2_2_2",
+        "1",
+        "SL2_7_2"
+      ],
+      [
+        "SL2_2_2",
+        "1",
+        "SL2_7_3"
+      ],
+      [
+        "SL2_2_2",
+        "3a",
+        "SL2_7_1"
+      ],
+      [
+        "SL2_2_2",
+        "3b",
+        "SL2_7_1"
+      ]
+    ],
+    "exponent": 840,
+    "fs_counts": {
+      "-1": 93,
+      "0": 108,
+      "1": 96
+    },
+    "not_verified": [
+      "No fit, q-expansion or phenomenological exclusion is computed.",
+      "Tensor-product irreps are irreducible; factorization does not prohibit mixed character fields.",
+      "Newspace dimension is not the number of Galois orbits."
+    ],
+    "order": 241920
+  },
+  "provenance": {
+    "arithmetic": "exact; integer, rational and algebraic operations only",
+    "dependency_files_sha256": {
+      ".python-version": "e72b03ed5b70312f2782f2b05055c55b24670e126d50e24c4f2c559bf288f810",
+      "requirements.lock": "cbf55e9560a7a8c17dcaea80658f298fc4f6659f7b41afd4d7368fd175dc2158",
+      "requirements.txt": "84a7c8ce54430f094b26bfa3679ad6d0096017190e097e32c18533dc57606365"
+    },
+    "source_sha256": {
+      "compactification_search.py": "406b3f64906635f5938b2140bce15f32a006239c0c1b690603df4bad029d5dda",
+      "eclectic_nonsplit.py": "52b29a92277d58488a559badf251a88a0dc24c6fd1aa2506491c8d3abe13130c",
+      "exact_2i.py": "cb67cb370f6fb0bc93177aa3d1fed53526b1826c1602d3c5a85c7fce1618bca0",
+      "exact_sl2.py": "8ed8c118bf02c910368b2a1a3d41eebfb7923993e23f8a22b565f4a2cff1391c",
+      "gamma70_fusion.py": "9c2d0b64d5432937b9f1d7eb74c34561e25bd48d6363c9dc0b0c84ffd6820e81",
+      "principal_weights.py": "6ad7e95e4ca16951d248e5123b9e4854f447d9753c045c48d9a7455738567d61",
+      "run_verifiers.py": "eba327f8ea45c6d6ccb1cd45ca0b9e77ab868419906ab6285b4567172526ef08",
+      "supplement_verify.py": "57de6b31b1c8e3ffc53c1468a47b7319c4c50084bb4cf2bba42a029815056bf1",
+      "verification_io.py": "cd3a0ef2a5f360393ebcd12c2de93bf6f61eb21700c327ddcb7a80a6b3d714ab",
+      "verify_2I_reps.py": "336e3ab5a7ae096c6ab0cf950a4d703c726de43995cff2c69f730c9cbedc04b3",
+      "wilson_line_centralizer.py": "be0e2321b772ace2a0f90d3e5608447312b25de8f8220fc6640cad11d471eaa2"
+    }
+  },
+  "schema_version": 1,
+  "scope": "CRT ring isomorphism; exact SL2(7) class algebra; Gamma70 representations and correctly normalized modular dimensions.",
+  "verification_status": "passed"
+}

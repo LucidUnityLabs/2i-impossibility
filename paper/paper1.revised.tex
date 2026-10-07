@@ -1,0 +1,287 @@
+\documentclass[11pt,a4paper]{amsart}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{remark}[proposition]{Remark}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\SL}{\mathrm{SL}}
+\newcommand{\Spin}{\mathrm{Spin}}
+\newcommand{\Sym}{\mathrm{Sym}}
+\title{Exact Representation-Theoretic Checks for Binary Icosahedral Constructions}
+\author{Tyler}
+\address{Independent researcher}
+\date{6 October 2026 --- proposed revision, subject to author review}
+\begin{document}
+\begin{abstract}
+We report exact finite calculations for the binary icosahedral group
+$2I=\SL(2,5)$, selected maps into exceptional Lie groups, and
+$\SL(2,\Z/70)$. We separate verified representation-theoretic facts from
+claims about compactifications and physical chirality. The character and
+Frobenius--Schur table, an eight-dimensional spinor-branching search and
+low-degree tensor invariants admit exact certificates. Several stronger
+exclusions in the original formulation do not follow: outer tensor products
+can carry mixed character fields, self-duality alone does not force a zero
+Dirac index, and selected examples do not classify all compactifications.
+The supplied scripts verify the explicitly stated finite scope, not a
+universal Standard-Model impossibility theorem.
+\end{abstract}
+\maketitle
+
+\section{Scope and verification conventions}
+The computations use exact integer pairs $a+b\varphi$, where
+$\varphi^2=\varphi+1$, for the binary-icosahedral group. Quaternion
+coordinates are $(a+b\varphi)/2$. Finite class algebras and cyclotomic
+polynomials are handled by exact rational and algebraic arithmetic.
+A script failure is distinct from a disproved conjecture; uncomputed
+catalog or physics claims are recorded as unverified. The programs are
+executable certificates, not a proof-assistant formalization.
+
+The internal space $S^3/2I\times T^2$ has real dimension five. Adding
+four-dimensional spacetime gives dimension nine. A ten-dimensional
+heterotic interpretation therefore requires additional explicitly specified
+structure; this product alone does not supply a six-dimensional internal
+space. No universal classification of such additional structure is attempted.
+
+\section{Characters and arithmetic}
+\begin{proposition}
+For a finite group $G$, all ordinary character values are algebraic
+integers in $\Q(\zeta_{\exp G})$. For $G=2I$, the exponent is $60$,
+and $\sin(\pi/14)\notin\Q(\zeta_{60})$.
+Moreover, $\sin(\pi/14)$ is not an ordinary character value of any finite group.
+\end{proposition}
+\begin{proof}
+The eigenvalues of $g$ in a finite-dimensional representation are roots of
+unity whose orders divide $\exp G$, so their sum has the asserted properties.
+Set $z=e^{\pi i/7}$. Since $z^7=-1$,
+$s=(z^3-z^4)/2=\cos(3\pi/7)=\sin(\pi/14)$.
+Exact reduction modulo $\Phi_{14}(z)$ gives
+$8s^3-4s^2-4s+1=0$. The polynomial is irreducible over $\Q$;
+its possible rational roots $\pm1,\pm1/2,\pm1/4,\pm1/8$ are not roots.
+Thus $[\Q(s):\Q]=3$, which cannot divide
+$[\Q(\zeta_{60}):\Q]=\phi(60)=16$.
+The monic minimal polynomial
+$x^3-\tfrac12x^2-\tfrac12x+\tfrac18$ is not in $\Z[x]$, so $s$ is not an
+algebraic integer. This proves the literal-character assertion, not a
+statement about normalized observables or mixing angles.
+\end{proof}
+
+The exact character field of $2I$ is $\Q(\sqrt5)$; the exponent field above
+is an upper bound. In particular, arithmetic must be applied to the
+specific data and permitted operations, not simply to a level label.
+
+\begin{proposition}
+The nine irreducible characters of $2I$ have the following dimensions and
+Frobenius--Schur indicators. Precisely the quaternionic irreducibles are
+faithful.
+\end{proposition}
+\begin{center}
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+Label & $1$ & $2_a$ & $2_b$ & $3_a$ & $3_b$ & $4_R$ & $4_H$ & $5$ & $6$\\
+Dimension & 1&2&2&3&3&4&4&5&6\\
+Indicator & 1&-1&-1&1&1&1&-1&1&-1\\
+\bottomrule
+\end{tabular}
+\end{center}
+\begin{proof}
+The 120 exact unit quaternions give nine conjugacy classes, with sizes
+$1,1,12,12,12,12,20,20,30$. Starting with the defining doublet,
+$\chi_{\Sym^{n+1}}=\chi_2\chi_{\Sym^n}-\chi_{\Sym^{n-1}}$ supplies the
+symmetric powers. The second doublet and triplet are their Galois
+conjugates; $4_R=2_a\otimes2_b$. These nine actual characters have exact
+inner products $\delta_{ij}$ and dimension-square sum $120$.
+Evaluating $|G|^{-1}\sum_g\chi(g^2)$ gives the displayed indicators.
+Kernels are checked directly using $\chi(g)=\chi(1)$, and
+$\sum_\chi\nu(\chi)\chi(1)=2=\#\{g:g^2=1\}$.
+\end{proof}
+
+\begin{remark}[What self-duality does not imply]
+This table does not prove that every equivariant Dirac index vanishes.
+An equivariant index is $[\ker D^+]-[\ker D^-]\in R(G)$, and a nonzero
+virtual representation can be self-dual. An antilinear map commuting with
+the chirality grading preserves, rather than exchanges, the two graded
+spaces. Vanishing requires additional structure pairing opposite-chirality
+kernels, compatible with the complete geometry and bundle twists. These
+conditions are not established by a character table alone.
+\end{remark}
+
+\section{Eight-dimensional spinors and invariants}
+The real irreducible pieces have dimensions $d$ for real type and $2d$
+for quaternionic type. There are 25 multisets of total real dimension eight,
+12 faithful. The programs construct lifts using
+$\Spin(4)=\SU(2)\times\SU(2)$ and the lift of the realified
+$\Sym^3\C^2$ representation, not independent choices of angles on classes.
+For two four-dimensional blocks with half-spinors $(A,B)$ and $(C,D)$,
+\[
+ V=AB+CD,\qquad S^+=AC+BD,\qquad S^-=AD+BC.
+\]
+The realified $4_H$ has unordered half-spinor pair
+$\{3\cdot1+5,\,2\cdot4_H\}$. Exact decomposition shows that it is the
+unique faithful real-eight module with three singlets in one half-spinor.
+This counts invariant spinors of the specified representations, not
+physical generations in an unspecified compactification.
+
+For the defining doublet and triplet,
+$2_a\otimes2_a=1+3_a$, so this tensor product does contain a singlet.
+Using the harmonic decomposition
+$\Sym^n(3_a)=V_n+V_{n-2}+\cdots$ gives
+\[
+\dim(2_a\otimes2_a\otimes\Sym^n3_a)^{2I}
+=1,1,1,1,1,2,3,3,3,4,5,6,7
+\quad(0\leq n\leq12).
+\]
+The doublet Molien coefficients agree through degree 60 with
+$(1+t^{30})/((1-t^{12})(1-t^{20}))$.
+
+\section{Selected centralizers}
+Write $V_j$ for the spin-$j$ representation of $\SU(2)$.
+For a principal $\SU(2)$, the adjoint is the sum of $V_j$ with $j$ the
+Lie-algebra exponents, without added Cartan singlets. The programs recover
+these branchings from exact root and weight orbits and cross-check the
+$E_8$ branching against standard tables \cite{SageBranching}.
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+Specified restricted adjoint & Dimension of $2I$ invariants\\
+\midrule
+Principal $\SU(2)$ in $E_8$ & 0\\
+Principal $\SU(2)$ in $E_6$ & 0\\
+Principal $\SU(2)$ in $E_6\subset E_8$ & 14\\
+Regular $\SU(2)$ in $\SU(6)\times\SU(2)\subset E_6\subset E_8$ & 133\\
+Regular $\SU(2)$ in $E_7\times\SU(2)\subset E_8$ & 133\\
+\bottomrule
+\end{tabular}
+\end{center}
+For the $E_6\times A_2$ chain, one must retain the mixed terms:
+\[
+248=(78,1)+(1,8)+(27,3)+(\overline{27},\overline3).
+\]
+The principal restriction of $27$ is $V_0+V_4+V_8$, with one $2I$ invariant;
+thus the full invariant dimension is $0+8+6=14$.
+For the regular $\SU(2)$, the corresponding invariant dimensions in $78$
+and $27$ are 35 and 15, giving $35+8+6\cdot15=133$.
+The principal maps in $E_6$ and $E_8$ kill the central involution of $2I$;
+their finite image is $A_5$, not an injectively embedded $2I$.
+
+For the particular block embedding
+$\R^{16}=(\Sym^3\C^2)_{\R}\oplus\R^8$, the fixed dimensions in the
+$D_8$ adjoint and half-spinor are respectively 31 and 24. There is an
+additional identification argument, rather than a dimension-only guess:
+simultaneous triality on the two $D_4$ blocks preserves the 240 roots of
+$E_8$ and takes the torus weights
+$(3,3,1,1,0,0,0,0)$ to $(4,2,0,0,0,0,0,0)$.
+The vector then splits as $V_2\oplus\R^{11}$, exhibiting a commuting
+$\mathfrak{so}(11)$ subalgebra. Under $\Spin(5)\times\Spin(11)$,
+\[
+248=(10,1)+(1,55)+(5,11)+(4,32),
+\]
+whose first-factor restrictions are $V_1+V_3$, $V_0$, $V_2$ and $V_{3/2}$.
+The nontrivial summands have no $2I$ invariants. Thus the exhibited
+$\mathfrak{so}(11)$ exhausts the 55 fixed dimensions: the fixed Lie algebra
+is $B_5$, of rank five, not $F_4\oplus\mathfrak u(1)^3$.
+The global centralizer group and its components are not identified here.
+
+The standard branching
+$248=(52,1)+(1,14)+(26,7)$ under $F_4\times G_2$ contains no trivial
+summand, hence its Lie-algebra centralizer is zero \cite{SageBranching}.
+Consequently no nontrivial \emph{connected} holonomy subgroup can commute
+with this entire pair. A claim about the full group centralizer, disconnected
+holonomy, or an asymmetric orbifold requires additional arguments.
+$F_4\times G_2$ is a special, non-regular subalgebra here; it is not a
+symmetric pair or a Dynkin-diagram folding of $E_8$.
+
+\section{Congruence groups and counterexamples to broad exclusions}
+CRT gives
+$\SL(2,\Z/70)\cong S_3\times2I\times\SL(2,7)$.
+The group has order $241920$, exponent $840$, and 297 irreducibles; their
+Frobenius--Schur counts are 96 real, 93 quaternionic and 108 complex.
+There are eight three-dimensional irreducibles, none nontrivial on both
+the $2I$ and $\SL(2,7)$ factors. This limited dimension statement does not
+exclude interactions between fields in different representations.
+
+Exact class-algebra diagonalization gives
+$\Q(\sqrt2,\sqrt{-7})$ as the character field of $\SL(2,7)$, agreeing with
+the independent table \cite{GroupNamesSL27}. Therefore the character field
+of the product is $\Q(\sqrt5,\sqrt2,\sqrt{-7})$, of degree eight.
+Neither $\sin(\pi/14)$ nor twice that number lies in this field. The
+previous assignment of $2\cos(2\pi a/7)$ to a principal-series character
+on a purported seven-element split torus is not correct.
+
+This exclusion for one group must not be generalized to all direct
+products. In $2I\times D_{14}$, where $D_{14}$ has order 14, the outer
+tensor product of the defining doublet with the dihedral doublet is
+irreducible and has a character value
+$\varphi(\zeta_7+\zeta_7^{-1})$ of degree six. An exact resultant and
+irreducibility check certify this. Factorization of an ordinary character
+as a product does not make its representation reducible or prevent a
+compositum of character fields.
+
+For $N\geq3$, let $\mu=|\SL(2,\Z/N)|$. The projective index is $\mu/2$,
+so $X(N)$ has $c=\mu/(2N)$ cusps and genus
+$g=1+\mu/24-c/2$ \cite{SageGamma}. At level 70 this gives
+$c=1728$, $g=9217$ and $\dim M_2=10944$.
+The weight-two newspace dimensions for $\Gamma_0(14),\Gamma_0(35)$ and
+$\Gamma_0(70)$ are respectively 1, 3 and 1. Dimension is not the number
+of Galois orbits: level 35 has two orbits, one with coefficient field
+$\Q(\sqrt{17})$ \cite{LMFDB35}. Modular-form coefficient fields must not
+be confused with finite-group character fields.
+
+A zero Schur multiplier alone does not exclude central extensions with
+arbitrary finite coefficients when the abelianization is nonzero. The
+order-12 group
+\[
+\{(g,t)\in S_3\times\Z/4:\epsilon(g)=t\bmod2\}
+\]
+with $\epsilon(g)\in\Z/2$ the permutation parity has central kernel $\Z/2$
+and does not split over $S_3$: each lift of a
+transposition has order four. Likewise,
+$\Delta(7350)=\Delta(150)\times_{S_3}\Delta(294)$, not their direct product.
+
+For a twisted center $\mathcal Z(\mathrm{Vec}_G^\omega)$, the untwisted
+exponent is not in general the twist-order bound. Already $G=\Z/2$ with
+$\omega(a,b,c)=(-1)^{abc}$ gives projective values $\pm i$ and twist order
+four. The group-theoretical Frobenius--Schur exponent instead divides
+$(\exp G)^2$ \cite[Theorem 9.2]{NgSchauenburg2007}; for $2I$ the resulting
+bound is 3600. This concerns canonical categorical data, not arbitrary
+morphisms: in a complex-linear category the trace of
+$\lambda\,\mathrm{id}_{\mathbf1}$ is $\lambda$.
+Finally, the second homotopy group of a 2-group is abelian; a proposed
+nonabelian $\pi_2=\SL(2,7)$ is not such a homotopy datum. A crossed module
+must instead specify its boundary map, abelian kernel, action and
+Postnikov class.
+
+\section{Topological arithmetic and limits}
+For a verified free finite action,
+$\chi(X/G)=\chi(X)/|G|$. Integrality is necessary, not sufficient to
+construct the action. Singular quotients require fixed-point data rather
+than this free-cover formula. The boundary of the 600-cell triangulates
+$S^3$ and has Euler characteristic zero; the filled four-ball has Euler
+characteristic one. A covering deck action is an action on the covering
+space, not a newly established free action on the quotient.
+
+The relation $|\chi|/2$ counts the magnitude of a net generation index only
+under the relevant Calabi--Yau threefold standard-embedding assumptions.
+For example, a \emph{specified free} $\Z/2$ quotient of a $\chi=-12$ parent
+would have $\chi=-6$ and standard-embedding net count three. This arithmetic
+neither constructs nor excludes an asymmetric CHL model. No exhaustive
+Calabi--Yau action classification or numerical flavor-fit scan is supplied.
+Unsupported catalog exclusions and phenomenological fit estimates are
+therefore not promoted to propositions.
+
+\section{Conclusion}
+The exact finite calculations retain substantial representation-theoretic
+content while narrowing the conclusions. The literal-character arithmetic
+obstruction, the $2I$ Frobenius--Schur table, the specified spinor branchings,
+and the selected centralizer and congruence-group calculations are
+independently testable. They do not by themselves prove a universal
+chirality obstruction or rule out all finite-symmetry compactifications.
+A stronger claim must state its geometric, categorical and physical inputs
+and provide the corresponding proof or reproducible computation.
+\bibliographystyle{plain}
+\bibliography{audit_references}
+\end{document}

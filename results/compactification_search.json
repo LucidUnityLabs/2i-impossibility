@@ -1,0 +1,130 @@
+{
+  "data": {
+    "CP2_action": {
+      "example": "diag(1,rho_2(g)) acts projectively and fixes [1:0:0]",
+      "faithful": true,
+      "free": false
+    },
+    "S4_free_2I_action": {
+      "excluded": true,
+      "reason": "Euler divisibility, not an assertion about all finite groups"
+    },
+    "conditional_CY3_Z2_example": {
+      "assumed_free_action": true,
+      "assumed_parent_euler": -12,
+      "quotient_euler": -6,
+      "scope": "Arithmetic consistency only; this does not construct a CHL model or verify an action.",
+      "standard_embedding_net_generations": 3
+    },
+    "quarantined": [
+      {
+        "claim": "K3 with faithful 2I symplectic action",
+        "required_evidence": "Supply the actual action/classification entry; do not confuse S5 of order 120 with SL2(5).",
+        "status": "not_verified"
+      },
+      {
+        "claim": "K3/2I resolution",
+        "required_evidence": "Specify a faithful action, fixed loci and resolution; free-cover arithmetic does not apply to singular quotients.",
+        "status": "not_verified"
+      },
+      {
+        "claim": "Tian-Yau / free Z2 exclusion",
+        "required_evidence": "Identify covering manifold, quotient, Hodge data and action. A catalog omission is not a nonexistence proof.",
+        "status": "not_verified"
+      },
+      {
+        "claim": "CICY-7884",
+        "required_evidence": "Pin the dataset, its indexing convention, configuration matrix and Hodge numbers.",
+        "status": "not_verified"
+      },
+      {
+        "claim": "Quintic quotients",
+        "required_evidence": "Specify free action and smoothness before applying chi/order.",
+        "status": "not_verified"
+      },
+      {
+        "claim": "CY3 with 2I action",
+        "required_evidence": "Unknown here; absence from a selected catalog is not an exhaustive theorem.",
+        "status": "not_verified"
+      },
+      {
+        "claim": "H4 lattice/CY obstruction",
+        "required_evidence": "Noncrystallographic four-dimensional action does not exclude higher-dimensional rational representations.",
+        "status": "not_verified"
+      },
+      {
+        "claim": "600-cell / I",
+        "required_evidence": "Distinguish A5 rotations from the free binary-icosahedral S3 action.",
+        "status": "not_verified"
+      }
+    ],
+    "quotient_action_on_base": "not inferred from the covering deck group",
+    "summary": {
+      "all_compactifications_excluded": null,
+      "exhaustive": false,
+      "quarantined_count": 8
+    },
+    "topologies": [
+      {
+        "euler": 0,
+        "label": "S3",
+        "real_dimension": 3,
+        "reason": "600-cell BOUNDARY triangulates S3; the filled 4-ball has Euler characteristic one."
+      },
+      {
+        "euler": 0,
+        "label": "S3/2I",
+        "real_dimension": 3,
+        "reason": "Left multiplication by unit quaternions is free on S3. The deck action is on the COVER."
+      },
+      {
+        "euler": 0,
+        "label": "S3/2I x T2",
+        "real_dimension": 5,
+        "reason": "Euler characteristic multiplies and real dimensions add."
+      },
+      {
+        "euler": 0,
+        "label": "S3/2I x S1 x S1",
+        "real_dimension": 5,
+        "reason": "Euler characteristic multiplies and real dimensions add."
+      },
+      {
+        "euler": 0,
+        "label": "S3/2I x S2",
+        "real_dimension": 5,
+        "reason": "Euler characteristic multiplies and real dimensions add."
+      },
+      {
+        "euler": 0,
+        "label": "S3/2I x S4",
+        "real_dimension": 7,
+        "reason": "Euler characteristic multiplies and real dimensions add."
+      }
+    ]
+  },
+  "provenance": {
+    "arithmetic": "exact; integer, rational and algebraic operations only",
+    "dependency_files_sha256": {
+      ".python-version": "e72b03ed5b70312f2782f2b05055c55b24670e126d50e24c4f2c559bf288f810",
+      "requirements.lock": "cbf55e9560a7a8c17dcaea80658f298fc4f6659f7b41afd4d7368fd175dc2158",
+      "requirements.txt": "84a7c8ce54430f094b26bfa3679ad6d0096017190e097e32c18533dc57606365"
+    },
+    "source_sha256": {
+      "compactification_search.py": "406b3f64906635f5938b2140bce15f32a006239c0c1b690603df4bad029d5dda",
+      "eclectic_nonsplit.py": "52b29a92277d58488a559badf251a88a0dc24c6fd1aa2506491c8d3abe13130c",
+      "exact_2i.py": "cb67cb370f6fb0bc93177aa3d1fed53526b1826c1602d3c5a85c7fce1618bca0",
+      "exact_sl2.py": "8ed8c118bf02c910368b2a1a3d41eebfb7923993e23f8a22b565f4a2cff1391c",
+      "gamma70_fusion.py": "9c2d0b64d5432937b9f1d7eb74c34561e25bd48d6363c9dc0b0c84ffd6820e81",
+      "principal_weights.py": "6ad7e95e4ca16951d248e5123b9e4854f447d9753c045c48d9a7455738567d61",
+      "run_verifiers.py": "eba327f8ea45c6d6ccb1cd45ca0b9e77ab868419906ab6285b4567172526ef08",
+      "supplement_verify.py": "57de6b31b1c8e3ffc53c1468a47b7319c4c50084bb4cf2bba42a029815056bf1",
+      "verification_io.py": "cd3a0ef2a5f360393ebcd12c2de93bf6f61eb21700c327ddcb7a80a6b3d714ab",
+      "verify_2I_reps.py": "336e3ab5a7ae096c6ab0cf950a4d703c726de43995cff2c69f730c9cbedc04b3",
+      "wilson_line_centralizer.py": "be0e2321b772ace2a0f90d3e5608447312b25de8f8220fc6640cad11d471eaa2"
+    }
+  },
+  "schema_version": 1,
+  "scope": "Euler arithmetic and dimensions for explicit topologies; catalog existence/action claims are not a classification.",
+  "verification_status": "passed"
+}

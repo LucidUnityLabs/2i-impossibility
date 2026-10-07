@@ -1,86 +1,122 @@
-# 2i-impossibility
+# 2i-impossibility: scoped exact verification
 
-Supporting code for the preprint "Structural Obstructions to
-Standard-Model Derivation from Binary Icosahedral Orbifolds and
-Modular-Flavor Extensions" (see `paper/paper1.pdf`).
+This repository contains exact finite checks of binary-icosahedral representation
+and invariant theory, selected SU(2) maps into E6/E8, congruence-group arithmetic,
+and explicit counterexamples to several overly broad exclusions in the original
+preprint. These computations do **not** establish a universal impossibility theorem
+for Standard-Model constructions.
 
-The paper exhaustively tests the class of candidate Standard Model
-derivations based on E8 gauge theory compactified on
-M4 x S3/2I x T2(tau=i), where 2I = SL(2,F5) is the binary icosahedral
-group, together with natural extensions (modular-flavor symmetries,
-eclectic non-split groups, twisted modular tensor categories, 2-group
-constructions). The result is negative: three impossibility theorems,
-each closing the program from an independent mathematical direction,
-plus five supporting propositions.
+The original `paper/paper1.pdf` must not be treated as validated by the corrected
+scripts until its claims have been revised and a reviewed replacement PDF has
+been explicitly published. `paper/paper1.revised.tex` is a proposed, narrower
+replacement source; it requires author review before promotion.
 
-## The three theorems
+## Tested Python baseline
 
-**Theorem A (Arithmetic obstruction).** Characters of finite-dimensional
-representations of any finite group G lie in the cyclotomic field
-Q(zeta_exp(G)). For 2I the exponent is 60 with prime support {2,3,5},
-while sin(pi/14) lies in Q(zeta_14) and requires the prime 7. By
-Goursat's lemma and the Bantay--Coste--Gannon--Ruelle character cap this
-prime separation persists through all known finite-symmetry constructions,
-so no 2I-based character-theoretic construction can reproduce the
-Cabibbo-angle value sin(pi/14).
+Python 3.13.5, SymPy 1.14.0 and mpmath 1.3.0. These are tested version pins, not a
+claim that they are the newest releases. The binary-icosahedral core uses only
+Python integers. SymPy is used for exact cyclotomic and class-algebra calculations.
+There is no NumPy eigensolver or floating-point acceptance tolerance.
 
-**Theorem B (Frobenius--Schur chirality obstruction).** Every faithful
-irreducible representation of 2I is quaternionic (Frobenius--Schur
-indicator -1) and no irreducible is of complex type. Consequently the
-equivariant Dirac index of any 2I worldsheet orbifold vanishes
-identically, independent of level matching, gauge embedding, and modular
-invariance, ruling out chiral spectra from this mechanism.
+For an initial exploratory installation:
 
-**Theorem C (F4 x G2 centralizer obstruction).** F4 x G2 is a maximal
-regular dual pair in E8 with trivial centralizer, so no heterotic bundle
-construction can realize it as the visible 4D gauge group; the natural
-2I Wilson-line embeddings land in the wrong centralizer structure to
-produce the Standard Model gauge group.
+```sh
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m pip check
+make test
+```
 
-## Status
+The included `requirements.lock` pins the two portable wheels by SHA256, as
+published on their official PyPI release-file pages. Download and archive them:
 
-Preprint. Not yet peer reviewed.
+```sh
+make fetch-wheels
+make install-locked
+```
 
-## Verification
+The wheel downloads were not performed during this audit; the hashes were checked
+against PyPI, and execution used the installed versions stated above. Hash locks
+prevent artifact drift but do not independently authenticate publishers. Preserve
+the wheelhouse in a release archive for offline reproduction; it is ignored by Git.
+For an intentional dependency update, edit the version pins and use
+`make bootstrap-lock` to create a new lock and wheelhouse under `build/`, then
+review them before replacing the committed lock. Existing trust baselines are
+never silently overwritten. Update the tested Python baseline and rerun every
+certificate check when changing dependencies.
 
-Every computational claim is reproduced from scripts with no external
-data files. The main verifier (numpy only) checks 20 assertions covering
-the 2I construction, conjugacy classes, the character table,
-Frobenius--Schur indicators (Theorem B), and the arithmetic obstruction
-(Theorem A):
+## Verification and certificates
 
-    python3 scripts/supplement_verify.py
+```sh
+make test        # normal interpreter and python -O
+make verify      # compare current results and source hashes to committed results
+```
 
-Expected final line: `SUMMARY: ALL 20 CHECKS PASS`. A saved run is in
-`scripts/supplement_verify_output.txt`.
+An intentional update is separate from verification:
 
-Per-theorem evidence scripts (each self-contained; some additionally use
-sympy/mpmath; each writes a `_results.json` next to itself when run):
+```sh
+make regenerate
+# Review every results/*.json diff before committing it.
+```
 
-- `scripts/verify_2I_reps.py` -- exact (sympy) representation theory of
-  2I: character table, Frobenius--Schur indicators, faithful irreps.
-- `scripts/gamma70_fusion.py` -- Gamma(70) modular-flavor fusion rules
-  and the modular-tower plateau.
-- `scripts/eclectic_nonsplit.py` -- eclectic non-split extension search
-  (Goursat-type constructions attempting to evade Theorem A).
-- `scripts/compactification_search.py` -- 600-cell chirality /
-  compactification paradigm search (Theorem B stress test).
-- `scripts/wilson_line_centralizer.py` -- Wilson-line centralizer
-  computation in E8 (Theorem C).
+Each script accepts `--output FILE` to write or `--check FILE` to compare. With
+neither option, it prints canonical JSON to standard output. Output paths do not
+depend on the working directory; explicitly supplied relative paths have ordinary
+command-line semantics. Failures return nonzero and never publish a new PASS
+certificate. `--check` never overwrites its input. Results contain exact integers
+or explicitly encoded algebraic values, stable labels, source/dependency-file hashes and scope
+limitations. A passing finite check is not a passing verdict on an uncomputed
+physical theory.
 
-## Paper
+| Script | Actual verified scope |
+|---|---|
+| `supplement_verify.py` | Exact 2I character/FS table, doublet Molien coefficients, cubic arithmetic |
+| `verify_2I_reps.py` | Faithful real-eight module enumeration with constructed spin lifts; tensor invariants |
+| `wilson_line_centralizer.py` | Specified principal/regular maps and the stated j=3/2 block map; no exhaustive scan |
+| `gamma70_fusion.py` | Exact CRT, SL2(7) characters/fields, Gamma70 dimensions/FS data and modular dimensions |
+| `eclectic_nonsplit.py` | Exact finite examples and counterexamples; undefined categories/groups remain unresolved |
+| `compactification_search.py` | Topological arithmetic; unsupported catalog entries explicitly quarantined |
 
-`paper/paper1.pdf` (source: `paper/paper1.tex`, bibliography:
-`paper/references.bib`).
+Changing any verifier source changes the provenance of every certificate. This is
+conservative by design. Review results and source changes together, rather than
+blindly accepting regenerated files. Certificate bytes are deterministic in the
+tested environment; this is not a proof-assistant formalization or a guarantee
+across untested Python/SymPy releases.
 
-## Citation
+## Paper build
 
-No DOI yet. Cite this repository:
+The local build requires Python, latexmk, pdfLaTeX, BibTeX and all packages used in
+the paper. It builds twice from clean copies, rejects unresolved references and
+requires byte-identical PDFs:
 
-    Tyler, "Structural Obstructions to Standard-Model Derivation from
-    Binary Icosahedral Orbifolds and Modular-Flavor Extensions,"
-    https://github.com/LucidUnityLabs/2i-impossibility (2026).
+```sh
+make paper
+```
 
-## License
+The result is `build/paper/paper1.pdf`, not the tracked published PDF. The adjacent
+build report records source hashes, tool versions, source date and PDF hash.
 
-MIT -- see `LICENSE`.
+For a release, select and review an OCI image containing those tools, then resolve
+its immutable digest explicitly with `python tools/pinned_build.py --pin IMAGE`.
+Commit `build-image.lock.json`, archive the image by digest, and run:
+
+```sh
+make paper-pinned
+```
+
+The pinned runner has networking disabled, drops capabilities, uses an unprivileged
+user and mounts sources read-only. An image digest is necessary but is not a
+publisher trust audit. Local `make paper` alone does not pin TeX, fonts or the OS.
+The GitHub Python workflow is a correctness gate, not a claim of bit-reproducible
+hosted-runner environments. The proposed TeX workflow must be exercised after
+choosing the actual image; no container digest is fabricated in this repository.
+
+Before publishing, inspect the PDF, review the mathematical statements and then
+copy the reviewed build explicitly to `paper/paper1.pdf`. Preserve prior published
+versions through Git/release history rather than rewriting history.
+
+## License and citation
+
+MIT, as in `LICENSE`. Cite the precise repository commit and the actual version of
+the paper used. No DOI or peer-review status is implied by successful scripts.
