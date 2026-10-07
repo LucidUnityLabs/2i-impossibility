@@ -29,3 +29,38 @@ jobs:
         env:
           PYTHONHASHSEED: '98765'
         run: python scripts/run_verifiers.py --check
+
+  paper:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Verify reviewed publication bytes and source provenance
+        run: |
+          python3 - <<'PYCODE'
+          import hashlib, json
+          from pathlib import Path
+          root = Path('paper')
+          report = json.loads((root/'paper1.revised.build.json').read_text())
+          if report['entry_source'] != 'paper1.revised.tex' or not report['two_clean_builds_equal']:
+              raise SystemExit('reviewed publication must use the revised source and two clean builds')
+          current = {p.name for p in root.iterdir() if p.suffix in ('.tex', '.bib')}
+          if current != set(report['source_sha256']):
+              raise SystemExit('publication source inventory changed; review/rebuild the artifact')
+          for name, expected in report['source_sha256'].items():
+              if hashlib.sha256((root/name).read_bytes()).hexdigest() != expected:
+                  raise SystemExit('publication source changed: '+name)
+          if hashlib.sha256((root/'paper1.revised.pdf').read_bytes()).hexdigest() != report['pdf_sha256']:
+              raise SystemExit('reviewed publication PDF hash mismatch')
+          PYCODE
+      - name: Pull the reviewed immutable TeX image
+        run: |
+          python3 - <<'PYCODE'
+          import json, subprocess
+          lock = json.load(open('build-image.lock.json'))
+          subprocess.run(['docker', 'pull', '--platform', lock['platform'], lock['image']], check=True)
+          PYCODE
+      - name: Build revised paper twice offline
+        run: make paper-pinned

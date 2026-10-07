@@ -6,10 +6,11 @@ and explicit counterexamples to several overly broad exclusions in the original
 preprint. These computations do **not** establish a universal impossibility theorem
 for Standard-Model constructions.
 
-The original `paper/paper1.pdf` must not be treated as validated by the corrected
-scripts until its claims have been revised and a reviewed replacement PDF has
-been explicitly published. `paper/paper1.revised.tex` is a proposed, narrower
-replacement source; it requires author review before promotion.
+The corrected paper is `paper/paper1.revised.pdf`, built from
+`paper/paper1.revised.tex`. Its adjacent `.build.json` records source hashes,
+tool versions and two-clean-build equality. The historical `paper/paper1.tex`
+and `paper/paper1.pdf` are preserved unchanged and contain superseded claims;
+corrected certificates do not validate that baseline.
 
 ## Tested Python baseline
 
@@ -36,8 +37,8 @@ make fetch-wheels
 make install-locked
 ```
 
-The wheel downloads were not performed during this audit; the hashes were checked
-against PyPI, and execution used the installed versions stated above. Hash locks
+The wheel hashes were checked against PyPI. Use the commands above to acquire
+the exact portable artifacts; tests use the installed versions stated above. Hash locks
 prevent artifact drift but do not independently authenticate publishers. Preserve
 the wheelhouse in a release archive for offline reproduction; it is ignored by Git.
 For an intentional dependency update, edit the version pins and use
@@ -94,27 +95,34 @@ requires byte-identical PDFs:
 make paper
 ```
 
-The result is `build/paper/paper1.pdf`, not the tracked published PDF. The adjacent
+The default source is `paper/paper1.revised.tex` and the result is
+`build/paper/paper1.revised.pdf`. Historical builds require the explicit
+`--source paper1.tex` option. The builder refuses any tracked paper-directory
+output and rejects overfull boxes as well as unresolved references. The adjacent
 build report records source hashes, tool versions, source date and PDF hash.
 
-For a release, select and review an OCI image containing those tools, then resolve
-its immutable digest explicitly with `python tools/pinned_build.py --pin IMAGE`.
-Commit `build-image.lock.json`, archive the image by digest, and run:
+`build-image.lock.json` pins the Linux amd64 image from
+[xu-cheng/latex-docker](https://github.com/xu-cheng/latex-docker) by its
+platform-specific OCI manifest digest, verified against downloaded registry
+manifest bytes. The image's package set supplies Python and the required TeX
+tools. Run:
 
 ```sh
+docker pull --platform linux/amd64 "$(python3 -c 'import json; print(json.load(open("build-image.lock.json"))["image"])')"
 make paper-pinned
 ```
 
 The pinned runner has networking disabled, drops capabilities, uses an unprivileged
-user and mounts sources read-only. An image digest is necessary but is not a
-publisher trust audit. Local `make paper` alone does not pin TeX, fonts or the OS.
-The GitHub Python workflow is a correctness gate, not a claim of bit-reproducible
-hosted-runner environments. The proposed TeX workflow must be exercised after
-choosing the actual image; no container digest is fabricated in this repository.
+user and mounts sources read-only. The GitHub workflow includes this two-build
+paper gate. Local macOS/TeX Live 2026 builds passed; pinned-container execution
+and image archival remain release requirements. The prepared pin and workflow
+are not a claim of a successful container build. Archive the image by digest
+with the eventual release, and require passing hosted verification and paper
+jobs for the published revision.
 
-Before publishing, inspect the PDF, review the mathematical statements and then
-copy the reviewed build explicitly to `paper/paper1.pdf`. Preserve prior published
-versions through Git/release history rather than rewriting history.
+Reviewed corrected PDFs are promoted explicitly to `paper/paper1.revised.pdf`;
+the historical filenames remain intact. No DOI or new peer-review status follows
+from the technical review.
 
 ## License and citation
 

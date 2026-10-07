@@ -21,7 +21,7 @@ class BuildToolTests(unittest.TestCase):
                      "LaTeX Warning: Citation `missing' on page 1 undefined",
                      'LaTeX Warning: Label(s) may have changed.',
                      'I couldn\'t open database file references.bib',
-                     '! Undefined control sequence.'):
+                     '! Undefined control sequence.', r'Overfull \hbox (7pt too wide)'):
             self.assertIsNotNone(b.BAD_LOG.search(text),text)
         self.assertIsNone(b.BAD_LOG.search('Output written on paper1.pdf (12 pages).'))
 
@@ -35,6 +35,11 @@ class BuildToolTests(unittest.TestCase):
         b = load('build_paper')
         with self.assertRaisesRegex(ValueError,'published PDF'):
             b.main(['--output',str(ROOT/'paper/paper1.pdf'),'--epoch','0'])
+
+    def test_revised_pdf_never_overwritten(self):
+        b = load('build_paper')
+        with self.assertRaisesRegex(ValueError, 'published PDF'):
+            b.main(['--output', str(ROOT/'paper/paper1.revised.pdf'), '--epoch', '0'])
 
     def test_container_digest_required(self):
         b = load('pinned_build')

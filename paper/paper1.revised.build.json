@@ -1,0 +1,17 @@
+{
+  "entry_source": "paper1.revised.tex",
+  "pdf_sha256": "37db7ab4486659861b9244715a4dbec1c1efa0416dd277bc4570ff527dac68a6",
+  "source_date_epoch": 1791352706,
+  "source_sha256": {
+    "audit_references.bib": "f585490be2cbf3abd8db9c9e986919db3aecfbf6a5b3279e61c173a1d750c825",
+    "paper1.revised.tex": "32b04a3d6e97ab49afda259a0b8b004387f64c3f8d29ff32a5b278dd1b54c28e",
+    "paper1.tex": "139ce70662bae89b847ae1a5f5a0019050dc1f8058eed149dbc2ca3535bbcebf",
+    "references.bib": "a19d50e821fddf84f66baf27df262ddd56b8785a502f278dddcf066ea3c49349"
+  },
+  "tools": {
+    "bibtex": "BibTeX 0.99e (TeX Live 2026)",
+    "latexmk": "Latexmk, John Collins, 9 March 2026. Version 4.88",
+    "pdflatex": "pdfTeX 3.141592653-2.6-1.40.29 (TeX Live 2026)"
+  },
+  "two_clean_builds_equal": true
+}

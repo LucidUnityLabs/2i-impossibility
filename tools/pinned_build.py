@@ -20,12 +20,13 @@ DIGEST = re.compile(r'^[A-Za-z0-9._:/-]+@sha256:[0-9a-f]{64}$')
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--pin',help='explicit image tag/digest to pull, review and lock')
+    p.add_argument('--platform',default='linux/amd64',help='release image platform')
     p.add_argument('--epoch',type=int)
     a = p.parse_args(argv)
     if a.pin:
         if a.pin.startswith('-') or LOCK.exists():
             raise ValueError('invalid image or existing lock; review any lock rotation explicitly')
-        subprocess.run(['docker','pull',a.pin],check=True)
+        subprocess.run(['docker','pull','--platform',a.platform,a.pin],check=True)
         info = json.loads(subprocess.check_output(['docker','image','inspect',a.pin],text=True))[0]
         digests = info.get('RepoDigests',[])
         if len(digests) != 1 or not DIGEST.fullmatch(digests[0]):

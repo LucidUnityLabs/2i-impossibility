@@ -15,7 +15,7 @@
 \title{Exact Representation-Theoretic Checks for Binary Icosahedral Constructions}
 \author{Tyler}
 \address{Independent researcher}
-\date{6 October 2026 --- proposed revision, subject to author review}
+\date{7 October 2026 --- corrected revision}
 \begin{document}
 \begin{abstract}
 We report exact finite calculations for the binary icosahedral group
@@ -39,7 +39,10 @@ coordinates are $(a+b\varphi)/2$. Finite class algebras and cyclotomic
 polynomials are handled by exact rational and algebraic arithmetic.
 A script failure is distinct from a disproved conjecture; uncomputed
 catalog or physics claims are recorded as unverified. The programs are
-executable certificates, not a proof-assistant formalization.
+executable certificates, not a proof-assistant formalization. This revision
+supersedes the mathematical claims of the historical preprint; the original
+source and PDF remain archived under their original names. Verification
+certificates apply only to the corrected scope stated here.
 
 The internal space $S^3/2I\times T^2$ has real dimension five. Adding
 four-dimensional spacetime gives dimension nine. A ten-dimensional
@@ -90,7 +93,7 @@ Indicator & 1&-1&-1&1&1&1&-1&1&-1\\
 \end{center}
 \begin{proof}
 The 120 exact unit quaternions give nine conjugacy classes, with sizes
-$1,1,12,12,12,12,20,20,30$. Starting with the defining doublet,
+\[1,1,12,12,12,12,20,20,30.\] Starting with the defining doublet,
 $\chi_{\Sym^{n+1}}=\chi_2\chi_{\Sym^n}-\chi_{\Sym^{n-1}}$ supplies the
 symmetric powers. The second doublet and triplet are their Galois
 conjugates; $4_R=2_a\otimes2_b$. These nine actual characters have exact
@@ -206,11 +209,11 @@ exclude interactions between fields in different representations.
 
 Exact class-algebra diagonalization gives
 $\Q(\sqrt2,\sqrt{-7})$ as the character field of $\SL(2,7)$, agreeing with
-the independent table \cite{GroupNamesSL27}. Therefore the character field
-of the product is $\Q(\sqrt5,\sqrt2,\sqrt{-7})$, of degree eight.
-Neither $\sin(\pi/14)$ nor twice that number lies in this field. The
-previous assignment of $2\cos(2\pi a/7)$ to a principal-series character
-on a purported seven-element split torus is not correct.
+the independent table \cite{GroupNamesSL27}. The product character field is
+\[\Q(\sqrt5,\sqrt2,\sqrt{-7}),\qquad [\Q(\sqrt5,\sqrt2,\sqrt{-7}):\Q]=8.\]
+Neither $\sin(\pi/14)$ nor twice that number lies in this field.
+The former seven-element split-torus assignment to principal-series
+characters was incorrect.
 
 This exclusion for one group must not be generalized to all direct
 products. In $2I\times D_{14}$, where $D_{14}$ has order 14, the outer
@@ -228,8 +231,13 @@ $c=1728$, $g=9217$ and $\dim M_2=10944$.
 The weight-two newspace dimensions for $\Gamma_0(14),\Gamma_0(35)$ and
 $\Gamma_0(70)$ are respectively 1, 3 and 1. Dimension is not the number
 of Galois orbits: level 35 has two orbits, one with coefficient field
-$\Q(\sqrt{17})$ \cite{LMFDB35}. Modular-form coefficient fields must not
-be confused with finite-group character fields.
+$\Q(\sqrt{17})$ \cite{LMFDB35,LMFDB35Quadratic}. Modular-form coefficient fields must not
+be confused with finite-group character fields. At level 70, the label
+\texttt{70.2.a.a} identifies the unique rational newform orbit, not an
+individual elliptic curve. LMFDB associates it with the conductor-70
+elliptic-curve isogeny class \texttt{70.a} (Cremona \texttt{70a})
+\cite{LMFDB70,LMFDB70Curve}. This database identification supplies no
+numerical flavor fit or physical exclusion.
 
 A zero Schur multiplier alone does not exclude central extensions with
 arbitrary finite coefficients when the abelianization is nonzero. The

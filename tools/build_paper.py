@@ -20,7 +20,7 @@ REQUIRED = ('latexmk','pdflatex','bibtex')
 BAD_LOG = re.compile(r'(?:undefined (?:references|citations)|(?:Reference|Citation) .+ undefined|'
                      r'Label\(s\) may have changed|multiply[- ]defined labels|'
                      r'I (?:couldn.t open database file|didn.t find a database entry)|'
-                     r'^!|Emergency stop|Fatal error)',re.I|re.M)
+                     r'Overfull \\[hv]box|^!|Emergency stop|Fatal error)',re.I|re.M)
 WRAPPER = r'''\ifdefined\pdfinfoomitdate\pdfinfoomitdate=1\fi
 \ifdefined\pdftrailerid\pdftrailerid{}\fi
 \ifdefined\pdfsuppressptexinfo\pdfsuppressptexinfo=15\fi
@@ -28,12 +28,12 @@ WRAPPER = r'''\ifdefined\pdfinfoomitdate\pdfinfoomitdate=1\fi
 '''
 
 
-def run_one(source,work,env):
+def run_one(source,work,env,entry="paper1.revised.tex"):
     shutil.copytree(source,work,ignore=shutil.ignore_patterns(
-        'paper1.pdf','*.aux','*.bbl','*.blg','*.log','*.out','*.fls','*.fdb_latexmk',
+        '*.pdf','*.aux','*.bbl','*.blg','*.log','*.out','*.fls','*.fdb_latexmk',
         '*.synctex.gz','*.toc','*.lof','*.lot'))
     wrapper = work/'repro-entry.tex'
-    wrapper.write_text(WRAPPER,encoding='utf-8')
+    wrapper.write_text(WRAPPER.replace("paper1.tex", entry),encoding='utf-8')
     command = ['latexmk','-norc','-pdf','-interaction=nonstopmode',
                '-halt-on-error','-file-line-error','-recorder','-jobname=paper1',
                '-pdflatex=pdflatex %O -no-shell-escape %S',wrapper.name]
@@ -54,15 +54,16 @@ def run_one(source,work,env):
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--epoch',type=int,default=None)
-    p.add_argument('--output',type=Path,default=ROOT/'build/paper/paper1.pdf')
+    p.add_argument('--source', choices=('paper1.revised.tex', 'paper1.tex'), default='paper1.revised.tex')
+    p.add_argument('--output',type=Path,default=ROOT/'build/paper/paper1.revised.pdf')
     a = p.parse_args(argv)
-    if a.output.resolve() == (ROOT/'paper/paper1.pdf').resolve():
+    if a.output.resolve().parent == (ROOT/'paper').resolve():
         raise ValueError('refusing to overwrite the published PDF; review/promote explicitly')
     for tool in REQUIRED:
         if shutil.which(tool) is None:
             raise ValueError(f'required build tool not found: {tool}')
-    if not (ROOT/'paper/paper1.tex').is_file() or not (ROOT/'paper/references.bib').is_file():
-        raise ValueError('paper/paper1.tex and paper/references.bib are required')
+    if not (ROOT/'paper'/a.source).is_file():
+        raise ValueError('selected paper source is required')
     epoch = a.epoch
     if epoch is None:
         epoch = int(subprocess.check_output(['git','log','-1','--format=%ct'],cwd=ROOT,text=True).strip())
@@ -73,15 +74,15 @@ def main(argv=None):
                          if line.strip()) for t in REQUIRED}
     with tempfile.TemporaryDirectory(prefix='2i-tex-') as temp:
         base = Path(temp)
-        pdf_a = run_one(ROOT/'paper',base/'first',env)
-        pdf_b = run_one(ROOT/'paper',base/'second',env)
+        pdf_a = run_one(ROOT/'paper',base/'first',env,a.source)
+        pdf_b = run_one(ROOT/'paper',base/'second',env,a.source)
         if pdf_a != pdf_b:
             raise ValueError('two clean builds produced different PDF bytes; no output promoted')
         a.output.parent.mkdir(parents=True,exist_ok=True)
         temp_output = a.output.with_suffix('.pdf.tmp')
         temp_output.write_bytes(pdf_a)
         temp_output.replace(a.output)
-        report = {'source_date_epoch':epoch,'tools':versions,'two_clean_builds_equal':True,
+        report = {'entry_source':a.source,'source_date_epoch':epoch,'tools':versions,'two_clean_builds_equal':True,
                   'pdf_sha256':hashlib.sha256(pdf_a).hexdigest(),
                   'source_sha256':{str(f.relative_to(ROOT/'paper')):hashlib.sha256(f.read_bytes()).hexdigest()
                        for f in sorted((ROOT/'paper').rglob('*')) if f.is_file() and f.suffix in ('.tex','.bib')}}

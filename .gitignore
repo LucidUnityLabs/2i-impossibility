@@ -29,3 +29,6 @@ wheelhouse/
 *.synctex.gz
 *.pdf
 !paper/paper1.pdf
+
+# Reviewed corrected publication; keep historical paper1.pdf tracked unchanged.
+!paper/paper1.revised.pdf
